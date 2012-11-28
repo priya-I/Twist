@@ -23,9 +23,10 @@ def InitializeDB():
         with con:
         
             cur = con.cursor()    
-            cur.execute("CREATE TABLE Documents(TWEETID INT,CATID INT,WORDID INT,FREQ INT);")
-            cur.execute("CREATE TABLE Words(ID INT, WORD TEXT NOT NULL,PRIMARY KEY(WORD);");
-            cur.execute("CREATE TABLE GlobalDict(TWEETID INT,WORDID INT,TFIDF FLOAT );")
+            #cur.execute("CREATE TABLE Documents(TWEETID INT,CATID INT,WORDID INT,FREQ INT);")
+            #cur.execute("CREATE TABLE Words(ID INT, WORD TEXT NOT NULL,PRIMARY KEY(WORD));")
+            #cur.execute("CREATE TABLE GlobalDict(TWEETID INT,WORDID INT,TFIDF FLOAT );")
+            cur.execute("CREATE TABLE Category(CATID TEXT, CATEGORY TEXT );")
             cur.execute("INSERT INTO Category values(1,'Sports');")
             cur.execute("INSERT INTO Category values(2,'Finance');")
             con.commit()
@@ -179,6 +180,7 @@ def tfidfcalculator(wordID,docID,idfn):
 def clear():
     con = lite.connect('./database/twist.db')
     wcur=con.cursor()
-    wcur.execute("delete from Words")
     wcur.execute("delete from Documents")
+    wcur.execute("delete from Words")
     wcur.execute("delete from GlobalDict")
+    con.commit()
