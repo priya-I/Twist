@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e882a49-88ac-4d16-8810-4d7974c0d693" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/twist.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Twist.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/other.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/testrunner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/TestDatabase.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/testf.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/twist.db" afterPath="$PROJECT_DIR$/database/twist.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/trainf.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/twist.db" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/twist.db" afterPath="$PROJECT_DIR$/twist.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/Database.py" afterPath="$PROJECT_DIR$/database/Database.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/TestDatabase.py" afterPath="$PROJECT_DIR$/database/TestDatabase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flatfiles/test.txt" afterPath="$PROJECT_DIR$/flatfiles/test.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flatfiles/testf.txt" afterPath="$PROJECT_DIR$/flatfiles/testf.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nlp/TextProcessing.py" afterPath="$PROJECT_DIR$/nlp/TextProcessing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm/SVMProcessing.py" afterPath="$PROJECT_DIR$/svm/SVMProcessing.py" />
     </list>
@@ -48,7 +40,47 @@
       <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="9" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0">
+            <state line="56" column="19" selection-start="1325" selection-end="1325" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestDatabase.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/TestDatabase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="182" column="15" selection-start="4947" selection-end="4947" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#91#113#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextProcessing.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="38" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SVMProcessing.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/svm/SVMProcessing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="4" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#55#77#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trainf.txt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flatfiles/trainf.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="0.5030488">
               <folding />
             </state>
           </provider>
@@ -63,17 +95,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svmutil.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$USER_HOME$/libsvm-3.13/python/svmutil.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="0" selection-start="3928" selection-end="3928" vertical-scroll-proportion="0.33231708">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Makefile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/libsvm-3.13/python/Makefile">
+      <file leaf-file-name="inputfile.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flatfiles/inputfile.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -81,46 +104,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svm.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/libsvm-3.13/python/svm.py">
+      <file leaf-file-name="inputfin" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flatfiles/inputfin">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="29" selection-start="2577" selection-end="2586" vertical-scroll-proportion="0.0">
+            <state line="5" column="42" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SVMProcessing.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/svm/SVMProcessing.py">
+      <file leaf-file-name="test.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flatfiles/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="10" selection-start="2576" selection-end="2576" vertical-scroll-proportion="0.0">
+            <state line="4" column="14" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextProcessing.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
+      <file leaf-file-name="testf.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flatfiles/testf.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="30" selection-start="2344" selection-end="2403" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Database.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/Database.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="24" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestDatabase.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/TestDatabase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="22" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.9672132">
+            <state line="6" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,11 +144,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/nlp/TextProcessing.py" />
-        <option value="$PROJECT_DIR$/database/Database.py" />
-        <option value="$PROJECT_DIR$/database/TestDatabase.py" />
+        <option value="$USER_HOME$/libsvm-3.13/python/svmutil.py" />
+        <option value="$USER_HOME$/libsvm-3.14/python/svmutil.py" />
+        <option value="$PROJECT_DIR$/flatfiles/testf.txt" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/database/Database.py" />
         <option value="$PROJECT_DIR$/svm/SVMProcessing.py" />
+        <option value="$PROJECT_DIR$/nlp/TextProcessing.py" />
+        <option value="$PROJECT_DIR$/flatfiles/test.txt" />
+        <option value="$PROJECT_DIR$/database/TestDatabase.py" />
       </list>
     </option>
   </component>
@@ -179,7 +188,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -188,14 +196,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Twist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Twist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Twist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Twist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/libsvm-3.14/python" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -225,7 +262,9 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -292,6 +331,24 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6e882a49-88ac-4d16-8810-4d7974c0d693" name="Default" comment="" />
@@ -306,14 +363,14 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32922536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961375" sideWeight="0.67077464" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17167382" sideWeight="0.67077464" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21030043" sideWeight="0.67077464" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3996479" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32922536" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3274648" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -375,6 +432,23 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$USER_HOME$/libsvm-3.13/python/svm.py</url>
+          <line>134</line>
+          <option name="timeStamp" value="459" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$USER_HOME$/libsvm-3.13/python/svmutil.py</url>
+          <line>117</line>
+          <option name="timeStamp" value="460" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/database/TestDatabase.py</url>
+          <line>177</line>
+          <option name="timeStamp" value="1229" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -390,70 +464,55 @@
           <option name="timeStamp" value="2" />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="354" />
+      <option name="time" value="1248" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/svm/SVMProcessing.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd_breakpoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="56" selection-start="2141" selection-end="2141" vertical-scroll-proportion="0.0">
+        <state line="105" column="0" selection-start="3308" selection-end="3308" vertical-scroll-proportion="0.29179332">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
+    <entry file="file://$USER_HOME$/libsvm-3.14/python/svm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="47" selection-start="993" selection-end="993" vertical-scroll-proportion="0.0">
+        <state line="102" column="10" selection-start="2977" selection-end="2977" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/Database.py">
+    <entry file="file://$USER_HOME$/libsvm-3.14/python/svmutil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="0" selection-start="4935" selection-end="4935" vertical-scroll-proportion="0.0">
+        <state line="138" column="34" selection-start="4657" selection-end="4657" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/TestDatabase.py">
+    <entry file="file://$PROJECT_DIR$/flatfiles/testfile.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="34" selection-start="3332" selection-end="3332" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flatfiles/inputfin">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flatfiles/inputtweets">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flatfiles/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="30" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" />
+        <state line="0" column="51" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/Database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="24" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0">
+        <state line="179" column="25" selection-start="4922" selection-end="4922" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
+    <entry file="file://$PROJECT_DIR$/flatfiles/inputfile.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="30" selection-start="2344" selection-end="2403" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/TestDatabase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.9672132">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -465,37 +524,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svm/SVMProcessing.py">
+    <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="10" selection-start="2576" selection-end="2576" vertical-scroll-proportion="0.0">
+        <state line="69" column="38" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/libsvm-3.13/python/svm.py">
+    <entry file="file://$PROJECT_DIR$/flatfiles/test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="29" selection-start="2577" selection-end="2586" vertical-scroll-proportion="0.0">
+        <state line="4" column="14" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/libsvm-3.13/python/Makefile">
+    <entry file="file://$PROJECT_DIR$/database/TestDatabase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="182" column="15" selection-start="4947" selection-end="4947" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#91#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flatfiles/inputfin">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="42" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="9" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0">
+        <state line="56" column="19" selection-start="1325" selection-end="1325" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/libsvm-3.13/python/svmutil.py">
+    <entry file="file://$PROJECT_DIR$/svm/SVMProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="0" selection-start="3928" selection-end="3928" vertical-scroll-proportion="0.33231708">
+        <state line="39" column="4" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#55#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flatfiles/testf.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flatfiles/trainf.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="0.5030488">
           <folding />
         </state>
       </provider>

@@ -18,13 +18,13 @@ noOfDocsWithWord={}
 
 def InitializeDB():
     try:
-        con = lite.connect('twist.db')
+        con = lite.connect('./database/twist.db')
     
         with con:
         
             cur = con.cursor()    
             cur.execute("CREATE TABLE Documents(TWEETID INT,CATID INT,WORDID INT,FREQ INT);")
-            cur.execute("CREATE TABLE Words(ID INT, WORD TEXT NOT NULL,PRIMARY KEY(WORD)");
+            cur.execute("CREATE TABLE Words(ID INT, WORD TEXT NOT NULL,PRIMARY KEY(WORD);");
             cur.execute("CREATE TABLE GlobalDict(TWEETID INT,WORDID INT,TFIDF FLOAT );")
             cur.execute("INSERT INTO Category values(1,'Sports');")
             cur.execute("INSERT INTO Category values(2,'Finance');")
@@ -48,7 +48,7 @@ def InitializeDB():
 
 def InsertWords(wordlist):
     try:
-        con = lite.connect('twist.db')
+        con = lite.connect('./database/twist.db')
     
         with con:
         
@@ -78,7 +78,7 @@ def InsertWords(wordlist):
 
 def InsertTweets(docentries):
      try:
-        con = lite.connect('twist.db')
+        con = lite.connect('./database/twist.db')
     
         with con:
             cur = con.cursor() 
@@ -104,7 +104,7 @@ def InsertTweets(docentries):
 
     
 def tfidf():
-    con = lite.connect('twist.db')
+    con = lite.connect('./database/twist.db')
     with con:
         finaltfidf = []
         wcur = con.cursor()
@@ -142,7 +142,7 @@ def tfidf():
             
 def tfidfcalculator(wordID,docID,idfn):
 
-    con = lite.connect('twist.db')
+    con = lite.connect('./database/twist.db')
     wordid=int(wordID)
     docid=int(docID)
     with con:
@@ -169,9 +169,16 @@ def tfidfcalculator(wordID,docID,idfn):
                 print "MAX TDF Value: "+str(maxtdf)
                 print "D value: "+str(idfn)
                 print "FDT value: "+str(idfd)
-                tfidf = (float(tfd[0])/float(maxtdf))*math.log10(float(idfn)/float(idfd))
+                #tfidf = (float(tfd[0])/float(maxtdf))*math.log10(float(idfn)/float(idfd))
+                tfidf=tfd[0]
                 return docid,wordid,tfidf
 
                 #wcur.execute("INSERT INTO GlobalDict values(?,?,?)",(docid,wordid,tfidf))
                 #print wordid , docid , tfidf
                 #con.commit()
+def clear():
+    con = lite.connect('./database/twist.db')
+    wcur=con.cursor()
+    wcur.execute("delete from Words")
+    wcur.execute("delete from Documents")
+    wcur.execute("delete from GlobalDict")

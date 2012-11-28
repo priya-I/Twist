@@ -5,10 +5,11 @@ Created on Nov 9, 2012
 '''
 import sqlite3 as lite
 from svmutil import *
+from svm import *
 
 def createTrainFile():
-        con = lite.connect('twist.db')
-        f = open('../flatfiles/trainf.txt', 'w')
+        con = lite.connect('./database/twist.db')
+        f = open('./flatfiles/trainf.txt', 'w')
         with con:
         
             cur = con.cursor()    
@@ -67,14 +68,17 @@ def createTestFile():
         
 
 def trainSVM():
-    labels,features=svm_read_problem('./flatfiles/inputf.txt')
+    labels,features=svm_read_problem('./flatfiles/trainf.txt')
     m=svm_train(labels,features,'-s 0 -t 0 -c 1')
     p_label, p_acc, p_val = svm_predict(labels, features, m)
+    svm_save_model('TwoCatsModel.model',m)
     print p_label
 
 def testSVM():
-    labels,features=svm_read_problem('./flatfiles/inputf.txt')
-    m=svm_train(labels,features,'-s 0 -t 0 -c 1')
-    labels,features=svm_read_problem('./flatfiles/testfile.txt')
+    m=svm_load_model('TwoCatsModel.model')
+    labels,features=svm_read_problem('/home/priya/Twist/flatfiles/testf.txt')
     p_label, p_acc, p_val = svm_predict(labels, features, m)
+
+    ACC, MSE, SCC = evaluations(labels, p_label)
     print p_label
+    print ACC, MSE, SCC

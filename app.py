@@ -29,10 +29,10 @@ if __name__=='__main__':
     flow=input("1.Train 2.Classify 3.Re-classify")
     if flow==1:
         #initialize the databases
-        db.InitializeDB()
+        db.clear()
+        #db.InitializeDB()
         #stream twitter data
         #to-do insert python streaming code here
-
         #Pre-process tweets
         tp.process(1)
 
@@ -46,16 +46,17 @@ if __name__=='__main__':
     elif flow==2:
         #initialize the test databases
         #tdb.InitializeTestDB()
+        tdb.clear()
         #stream twitter data
         #to-do insert python streaming code here
         #Pre-process tweets
-        #tp.process(2)
-       # tdb.tfidf()
+        tp.process(2)
+        tdb.tfidf()
         #SVM Processing
         #1. Create libSVM file
         svmp.createTestFile()
         #2. Train the SVM
-        svmp.testSVM()
+        #svmp.testSVM()
     elif flow==3:
         print "nothign"
 

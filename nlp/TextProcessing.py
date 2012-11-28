@@ -28,7 +28,6 @@ wordsintweets =[]
 
 def process(flow):
     if flow==2:
-        #TestDatabase.clear()
         filenames=['./flatfiles/test.txt']
     else:
         filenames=['./flatfiles/inputtweets','./flatfiles/inputfin']
@@ -48,8 +47,6 @@ def process(flow):
         else:
             catId += 1
         with open(f) as tweet_list:
-
-
             for line in tweet_list:
                 wordidList = []
                 freqList = []
@@ -64,9 +61,7 @@ def process(flow):
                 bigrams = [list[i] + " " + list[i + 1] for i in range(len(list) - 1)]
 
                 wordCount = {}
-               # allTokens = list + bigrams
-                allTokens=list
-                #print [i for i in allTokens]
+                allTokens = list + bigrams
                 [wordCount.__setitem__(w,1+wordCount.get(w,0)) for w in allTokens]
 
                 for w in wordCount.keys():
@@ -82,10 +77,6 @@ def process(flow):
                 elif flow==2:
                     TestDatabase.InsertWords(wordidList)
                     TestDatabase.InsertTweets(freqList)
-
-
-
-
 
 def findSuggestions(word):
 

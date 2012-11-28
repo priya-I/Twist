@@ -44,7 +44,7 @@ def InitializeTestDB():
 
 def InsertWords(wordlist):
     try:
-        con = lite.connect('/home/priya/Twist/database/twist.db')
+        con = lite.connect('./database/twist.db')
     
         with con:
         
@@ -74,7 +74,7 @@ def InsertWords(wordlist):
 
 def InsertTweets(docentries):
      try:
-        con = lite.connect('/home/priya/Twist/database/twist.db')
+        con = lite.connect('./database/twist.db')
     
         with con:
             cur = con.cursor() 
@@ -100,7 +100,7 @@ def InsertTweets(docentries):
 
     
 def tfidf():
-    con = lite.connect('/home/priya/Twist/database/twist.db')
+    con = lite.connect('./database/twist.db')
     with con:
         finaltfidf = []
         wcur = con.cursor()
@@ -138,7 +138,7 @@ def tfidf():
             
 def tfidfcalculator(wordID,docID,idfn):
 
-    con = lite.connect('/home/priya/Twist/database/twist.db')
+    con = lite.connect('./database/twist.db')
     wordid=int(wordID)
     docid=int(docID)
     with con:
@@ -165,7 +165,9 @@ def tfidfcalculator(wordID,docID,idfn):
                 print "MAX TDF Value: "+str(maxtdf)
                 print "D value: "+str(idfn)
                 print "FDT value: "+str(idfd)
-                tfidf = (float(tfd[0])/float(maxtdf))*math.log10(float(idfn)/float(idfd))
+                #tfidf = (float(tfd[0])/float(maxtdf))*math.log10(float(idfn)/float(idfd))
+
+                tfidf = tfd[0]
                 return docid,wordid,tfidf
 
                 #wcur.execute("INSERT INTO GlobalDict values(?,?,?)",(docid,wordid,tfidf))
@@ -173,8 +175,9 @@ def tfidfcalculator(wordID,docID,idfn):
                 #con.commit()
 
 def clear():
-    con = lite.connect('/home/priya/Twist/database/twist.db')
+    con = lite.connect('./database/twist.db')
     wcur=con.cursor()
-    wcur.execute("TRUNCATE TABLE TestWords")
-    wcur.execute("TRUNCATE TABLE TestDocuments")
-    wcur.execute("TRUNCATE TABLE TestGlobalDict")
+    wcur.execute("delete from TestWords")
+    wcur.execute("delete from TestDocuments")
+    wcur.execute("delete from TestGlobalDict")
+    con.commit()
