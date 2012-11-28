@@ -5,7 +5,7 @@ Created on Nov 9, 2012
 '''
 import sqlite3 as lite
 from svmutil import *
-from svm import *
+from svmProc import *
 
 def createTrainFile():
         con = lite.connect('./database/twist.db')
@@ -68,7 +68,9 @@ def createTestFile():
         
 
 def trainSVM():
+
     labels,features=svm_read_problem('./flatfiles/trainf.txt')
+
     m=svm_train(labels,features,'-s 0 -t 0 -c 1')
     p_label, p_acc, p_val = svm_predict(labels, features, m)
     svm_save_model('TwoCatsModel.model',m)
