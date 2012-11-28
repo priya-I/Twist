@@ -37,8 +37,8 @@ def createTrainFile():
 
 
 def createTestFile():
-    con = lite.connect('twist.db')
-    f = open('../flatfiles/testf.txt', 'w')
+    con = lite.connect('/home/priya/Twist/database/twist.db')
+    f = open('./flatfiles/testf.txt', 'w')
     with con:
 
         cur = con.cursor()
@@ -56,7 +56,7 @@ def createTestFile():
             wordrows = cur.fetchall()
             for j in wordrows:
                 print j[0]
-                cur.execute("SELECT TFIDF FROM GlobalDict WHERE TWEETID=? AND WORDID=?",(i[0],j[0]))
+                cur.execute("SELECT TFIDF FROM TestGlobalDict WHERE TWEETID=? AND WORDID=?",(i[0],j[0]))
                 tfidf = cur.fetchone()
                 f.write(str(j[0])+":"+str(tfidf[0])+" ");
                 print str(j[0])+":"+str(tfidf[0])+" "
@@ -67,14 +67,14 @@ def createTestFile():
         
 
 def trainSVM():
-    labels,features=svm_read_problem('inputf.txt')
+    labels,features=svm_read_problem('./flatfiles/inputf.txt')
     m=svm_train(labels,features,'-s 0 -t 0 -c 1')
     p_label, p_acc, p_val = svm_predict(labels, features, m)
     print p_label
 
 def testSVM():
-    labels,features=svm_read_problem('inputf.txt')
+    labels,features=svm_read_problem('./flatfiles/inputf.txt')
     m=svm_train(labels,features,'-s 0 -t 0 -c 1')
-    labels,features=svm_read_problem('testfile.txt')
+    labels,features=svm_read_problem('./flatfiles/testfile.txt')
     p_label, p_acc, p_val = svm_predict(labels, features, m)
     print p_label

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from twist.database import Database
+from database import Database, TestDatabase
 
 
 __author__ = 'rahmaniacc'
@@ -28,18 +28,25 @@ wordsintweets =[]
 
 def process(flow):
     if flow==2:
-        Database.clear()
+        #TestDatabase.clear()
+        filenames=['./flatfiles/test.txt']
+    else:
+        filenames=['./flatfiles/inputtweets','./flatfiles/inputfin']
     wordList = nltk.corpus.words.words()
-    stopwordsfile = open('stopwords.txt')
+    stopwordsfile = open('./flatfiles/stopwords.txt')
     stopwords = set([word for word in stopwordsfile.read().split('\n')])
     stopwords = [porter.stem(s) for s in stopwords]
     lineno = 0
     catId = 0
     wordId = 1
     #filenames = ['sport.txt','finance.txt']
-    filenames=['inputtweets','inputfin']
+    #filenames=['../flatfiles/inputtweets','../flatfiles/inputfin']
+
     for f in filenames:
-        catId += 1
+        if flow==2:
+            catId=0
+        else:
+            catId += 1
         with open(f) as tweet_list:
 
 
@@ -69,9 +76,13 @@ def process(flow):
                         freqList.append((lineno,catId,wordId,wordCount[w]))
                         wordId +=1
 
-                Database.InsertWords(wordidList,flow)
-                Database.InsertTweets(freqList,flow)
-                #wordId += len(wordCount.keys())
+                if flow==1:
+                    Database.InsertWords(wordidList)
+                    Database.InsertTweets(freqList)
+                elif flow==2:
+                    TestDatabase.InsertWords(wordidList)
+                    TestDatabase.InsertTweets(freqList)
+
 
 
 
