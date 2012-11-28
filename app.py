@@ -23,14 +23,14 @@ from nlp import TextProcessing as tp
 from database import Database as db
 from database import TestDatabase as tdb
 #from twist.stream import collectTweets
-from svm import SVMProcessing as svmp
+from svmProc import SVMProcessing as svmp
 
 if __name__=='__main__':
     flow=input("1.Train 2.Classify 3.Re-classify")
     if flow==1:
         #initialize the databases
-        #db.clear()
-        db.InitializeDB()
+        db.clear()
+        #db.InitializeDB()
         #stream twitter data
         #to-do insert python streaming code here
         #Pre-process tweets
@@ -45,8 +45,8 @@ if __name__=='__main__':
         svmp.trainSVM()
     elif flow==2:
         #initialize the test databases
-        tdb.InitializeTestDB()
-        #tdb.clear()
+        #tdb.InitializeTestDB()
+        tdb.clear()
         #stream twitter data
         #to-do insert python streaming code here
         #Pre-process tweets
@@ -56,9 +56,9 @@ if __name__=='__main__':
         #1. Create libSVM file
         svmp.createTestFile()
         #2. Train the SVM
-        #svmp.testSVM()
+        svmp.testSVM()
     elif flow==3:
-        print "nothign"
+        print "nothing"
 
         # Edit the databases with the re-classified tweet
         # Fit the re-classified tweet into the SVM
