@@ -23,9 +23,9 @@ def InitializeDB():
         with con:
         
             cur = con.cursor()    
-            #cur.execute("CREATE TABLE Documents(TWEETID INT,CATID INT,WORDID INT,FREQ INT);")
-            #cur.execute("CREATE TABLE Words(ID INT, WORD TEXT NOT NULL,PRIMARY KEY(WORD));")
-            #cur.execute("CREATE TABLE GlobalDict(TWEETID INT,WORDID INT,TFIDF FLOAT );")
+            #cur.execute("CREATE TABLE Documents(TWEETID LONG,CATID INT,WORDID LONG,FREQ INT);")
+            #cur.execute("CREATE TABLE Words(ID LONG, WORD TEXT NOT NULL,PRIMARY KEY(WORD));")
+            #cur.execute("CREATE TABLE GlobalDict(TWEETID LONG,WORDID LONG,TFIDF FLOAT );")
             cur.execute("CREATE TABLE Category(CATID TEXT, CATEGORY TEXT );")
             cur.execute("INSERT INTO Category values(1,'Sports');")
             cur.execute("INSERT INTO Category values(2,'Finance');")
@@ -49,14 +49,14 @@ def InitializeDB():
 
 def InsertWords(wordlist):
     try:
-        con = lite.connect('./database/twist.db')
+        #con = lite.connect('./database/twist.db')
     
-        with con:
+        #with con:
         
-            cur = con.cursor()    
+         #   cur = con.cursor()
 
             
-            try:
+          #  try:
                 for worden in wordlist:
                     cur.execute("INSERT INTO Words VALUES(?, ?);", worden)
             except:
@@ -117,30 +117,30 @@ def tfidf():
         docrows = wcur.fetchall()
 
 
-        for j in docrows:
-            wcur.execute("SELECT MAX(FREQ) FROM Documents WHERE TWEETID=? ",(j[0],))
-            maxtdf=wcur.fetchone()
-            maxFreqInDoc[int(j[0])]=maxtdf[0]
+        #for j in docrows:
+         #   wcur.execute("SELECT MAX(FREQ) FROM Documents WHERE TWEETID=? ",(j[0],))
+          #  maxtdf=wcur.fetchone()
+           # maxFreqInDoc[int(j[0])]=maxtdf[0]
 
-        for i in wordrows:
-            wcur.execute("SELECT COUNT(DISTINCT(TWEETID)) FROM Documents WHERE WORDID=?",(i[0],))
-            idfd=wcur.fetchone()
-            noOfDocsWithWord[int(i[0])]=idfd[0]
+        #for i in wordrows:
+        #    wcur.execute("SELECT COUNT(DISTINCT(TWEETID)) FROM Documents WHERE WORDID=?",(i[0],))
+         #   idfd=wcur.fetchone()
+          #  noOfDocsWithWord[int(i[0])]=idfd[0]
 
 
-        wcur.execute("SELECT COUNT(DISTINCT(TWEETID)) FROM Documents")
-        idfn = wcur.fetchone()[0]
+       # wcur.execute("SELECT COUNT(DISTINCT(TWEETID)) FROM Documents")
+      #  idfn = wcur.fetchone()[0]
 
     for i in wordrows:
             for j in docrows:
-                t = tfidfcalculator(i[0],j[0],idfn)
+                #t = tfidfcalculator(i[0],j[0],idfn)
+                t = insertIntoGD(i[0],j[0],con)
                 finaltfidf.append(t)
 
     wcur.executemany("INSERT INTO GlobalDict values(?,?,?)",finaltfidf);
     con.commit()
-           # wcur.execute("INSERT INTO GlobalDict values(?,?,?)",(eachrowt[0],eachroww[0],tfidf))
-           # con.commit()
-            
+    con.close()
+
 def tfidfcalculator(wordID,docID,idfn):
 
     con = lite.connect('./database/twist.db')
@@ -171,12 +171,31 @@ def tfidfcalculator(wordID,docID,idfn):
                 print "D value: "+str(idfn)
                 print "FDT value: "+str(idfd)
                 #tfidf = (float(tfd[0])/float(maxtdf))*math.log10(float(idfn)/float(idfd))
-                tfidf=tfd[0]
+                tfidf=1
                 return docid,wordid,tfidf
 
                 #wcur.execute("INSERT INTO GlobalDict values(?,?,?)",(docid,wordid,tfidf))
                 #print wordid , docid , tfidf
                 #con.commit()
+
+
+def insertIntoGD(wordID,docID,con):
+
+        wordid=int(wordID)
+        docid=int(docID)
+        with con:
+            wcur = con.cursor()
+            wcur.execute("SELECT FREQ FROM Documents WHERE WORDID=? AND TWEETID=? ",(wordid,docid))
+
+            tfd=wcur.fetchone()
+
+            print wordid , docid
+            if  tfd==None:
+                return docid,wordid,0
+
+            else:
+                return docid,wordid,1
+
 def clear():
     con = lite.connect('./database/twist.db')
     wcur=con.cursor()

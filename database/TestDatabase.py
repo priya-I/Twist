@@ -167,7 +167,7 @@ def tfidfcalculator(wordID,docID,idfn):
                 print "FDT value: "+str(idfd)
                 #tfidf = (float(tfd[0])/float(maxtdf))*math.log10(float(idfn)/float(idfd))
 
-                tfidf = tfd[0]
+                tfidf = 1
                 return docid,wordid,tfidf
 
                 #wcur.execute("INSERT INTO GlobalDict values(?,?,?)",(docid,wordid,tfidf))

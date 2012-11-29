@@ -20,6 +20,7 @@ __author__ = 'rahmaniacc'
 import nltk
 import string
 import stemming.porter2 as porter
+import spellcheck
 
 letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 freqList = {}
@@ -30,7 +31,7 @@ def process(flow):
     if flow==2:
         filenames=['./flatfiles/test.txt']
     else:
-        filenames=['./flatfiles/inputtweets','./flatfiles/inputfin']
+        filenames=['./flatfiles/sports_small','./flatfiles/finance_small']
     wordList = nltk.corpus.words.words()
     stopwordsfile = open('./flatfiles/stopwords.txt')
     stopwords = set([word for word in stopwordsfile.read().split('\n')])
@@ -39,7 +40,7 @@ def process(flow):
     catId = 0
     wordId = 1
     #filenames = ['sport.txt','finance.txt']
-    #filenames=['../flatfiles/inputtweets','../flatfiles/inputfin']
+    #filenames=['../flatfiles/sports','../flatfiles/finance']
 
     for f in filenames:
         if flow==2:
