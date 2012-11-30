@@ -2,33 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e882a49-88ac-4d16-8810-4d7974c0d693" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/priya.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TwoCatsModel.model" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docset" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/finance_med" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/finance_small" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/finance_smaller" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/sports_med" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/sports_small" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/sports_smaller" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/testf_3000.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/trainf_500.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/globalDict" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testdocset" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordset" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/Database.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/TestDatabase.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/twist.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/flatfiles/inputf.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/flatfiles/inputfile.txt" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SFModel.model" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/finance_large" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flatfiles/sports_large" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/outputCat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/some" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/svmProc/test.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/globalDict" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TwoCatsModel.model" afterPath="$PROJECT_DIR$/TwoCatModel.model" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docset" afterPath="$PROJECT_DIR$/docset" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flatfiles/sports" afterPath="$PROJECT_DIR$/flatfiles/sports" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flatfiles/test.txt" afterPath="$PROJECT_DIR$/flatfiles/test.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flatfiles/testf.txt" afterPath="$PROJECT_DIR$/flatfiles/testf.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flatfiles/trainf.txt" afterPath="$PROJECT_DIR$/flatfiles/trainf.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nlp/TextProcessing.py" afterPath="$PROJECT_DIR$/nlp/TextProcessing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svmProc/SVMProcessing.py" afterPath="$PROJECT_DIR$/svmProc/SVMProcessing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testdocset" afterPath="$PROJECT_DIR$/testdocset" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordset" afterPath="$PROJECT_DIR$/wordset" />
     </list>
     <ignored path="Twist.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,21 +45,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="712" selection-end="712" vertical-scroll-proportion="0.28895184">
-              <folding>
-                <element signature="e#328#364#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trainf.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flatfiles/trainf.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2999" column="18" selection-start="490606" selection-end="490606" vertical-scroll-proportion="0.0">
+            <state line="45" column="17" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,30 +57,8 @@
       <file leaf-file-name="SVMProcessing.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/svmProc/SVMProcessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="2604" selection-end="2604" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#88#109#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testf.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flatfiles/testf.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="110" selection-start="3237" selection-end="3237" vertical-scroll-proportion="0.0">
+            <state line="104" column="55" selection-start="3423" selection-end="3423" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextProcessing.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="13" selection-start="789" selection-end="789" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#567#578#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -107,7 +66,25 @@
       <file leaf-file-name="test.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flatfiles/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="69" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0">
+            <state line="39" column="44" selection-start="3975" selection-end="3975" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/svmProc/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="10" selection-start="32" selection-end="33" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trainf.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flatfiles/trainf.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="659" column="69" selection-start="89904" selection-end="89904" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -116,7 +93,16 @@
       <file leaf-file-name="wordset" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wordset">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32905" column="19" selection-start="592075" selection-end="592075" vertical-scroll-proportion="0.0">
+            <state line="348" column="3" selection-start="4910" selection-end="4913" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextProcessing.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="44" selection-start="941" selection-end="941" vertical-scroll-proportion="0.027829314">
               <folding />
             </state>
           </provider>
@@ -135,22 +121,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/flatfiles/sports_smaller" />
-        <option value="$PROJECT_DIR$/flatfiles/finance_smaller" />
-        <option value="$PROJECT_DIR$/globalDict" />
-        <option value="$PROJECT_DIR$/flatfiles/trainf.txt" />
-        <option value="$PROJECT_DIR$/docset" />
-        <option value="$PROJECT_DIR$/flatfiles/sports_med" />
-        <option value="$PROJECT_DIR$/flatfiles/finance_med" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/wordset" />
         <option value="$PROJECT_DIR$/testdocset" />
         <option value="$PROJECT_DIR$/flatfiles/testf.txt" />
-        <option value="$PROJECT_DIR$/flatfiles/test.txt" />
-        <option value="$PROJECT_DIR$/nlp/TextProcessing.py" />
         <option value="$PROJECT_DIR$/database/Database.py" />
+        <option value="$PROJECT_DIR$/flatfiles/sports" />
+        <option value="$PROJECT_DIR$/flatfiles/test.txt" />
+        <option value="$PROJECT_DIR$/test" />
+        <option value="$PROJECT_DIR$/flatfiles/sports_large" />
+        <option value="$PROJECT_DIR$/flatfiles/finance_large" />
+        <option value="$PROJECT_DIR$/svmProc/test.py" />
+        <option value="$PROJECT_DIR$/docset" />
+        <option value="$PROJECT_DIR$/nlp/TextProcessing.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/svmProc/SVMProcessing.py" />
+        <option value="$PROJECT_DIR$/outputCat" />
+        <option value="$PROJECT_DIR$/some" />
       </list>
     </option>
   </component>
@@ -193,14 +179,6 @@
               <option name="myItemId" value="Twist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.3 (/usr/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -208,15 +186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.3 (/usr/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python" />
+              <option name="myItemId" value="Twist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -227,6 +197,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Twist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flatfiles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,11 +212,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/liblinear-1.92/python" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -286,11 +260,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/svmProc" />
       <option name="IS_MODULE_SDK" value="true" />
       <module name="Twist" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/svmProc/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -355,9 +329,10 @@
       <item index="1" class="java.lang.String" itemvalue="Python.test" />
     </list>
     <recent_temporary>
-      <list size="2">
+      <list size="3">
         <item index="0" class="java.lang.String" itemvalue="Python.app" />
         <item index="1" class="java.lang.String" itemvalue="Python.test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -406,7 +381,11 @@
       <created>1354218250835</created>
       <updated>1354218250835</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Lots of structural and method changes">
+      <created>1354263307266</created>
+      <updated>1354263307266</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -415,10 +394,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3274648" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961375" sideWeight="0.67077464" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961375" sideWeight="0.7059859" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19742489" sideWeight="0.67253524" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20085837" sideWeight="0.7059859" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -427,6 +405,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3274648" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -468,7 +447,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes related to tfidf etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of structural and method changes" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -485,6 +464,7 @@
     <MESSAGE value="Adding more changes .." />
     <MESSAGE value="Changes directory name to svmProc to avoid ambiguity" />
     <MESSAGE value="changes related to tfidf etc" />
+    <MESSAGE value="Lots of structural and method changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -525,103 +505,102 @@
           <option name="timeStamp" value="2" />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="4950" />
+      <option name="time" value="5598" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/flatfiles/finance">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41511" column="0" selection-start="3995382" selection-end="3996469" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flatfiles/testf_3000.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="2507" selection-end="2507" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/libsvm-3.14/python/svmutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="4" selection-start="916" selection-end="916" vertical-scroll-proportion="0.3314121">
-          <folding />
-        </state>
+        <state line="16894" column="0" selection-start="1670203" selection-end="1675592" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Downloads/liblinear-1.92/python/liblinearutil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="4" selection-start="913" selection-end="913" vertical-scroll-proportion="0.33233532">
-          <folding />
-        </state>
+        <state line="226" column="9" selection-start="7290" selection-end="7290" vertical-scroll-proportion="3.131579" />
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm20/system/python_stubs/-1247972723/__builtin__.py">
+    <entry file="file://$PROJECT_DIR$/flatfiles/sports">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3217" column="8" selection-start="109648" selection-end="109648" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="21088" column="35" selection-start="2052267" selection-end="2052267" vertical-scroll-proportion="0.49253732" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flatfiles/finance_large">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4999" column="66" selection-start="523747" selection-end="523747" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testdocset">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="17" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0">
+        <state line="12" column="17" selection-start="150" selection-end="150" vertical-scroll-proportion="0.48387095" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svmProc/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="10" selection-start="32" selection-end="33" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wordset">
+    <entry file="file://$PROJECT_DIR$/svmProc/SVMProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32905" column="19" selection-start="592075" selection-end="592075" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flatfiles/trainf.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2999" column="18" selection-start="490606" selection-end="490606" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flatfiles/testf.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="110" selection-start="3237" selection-end="3237" vertical-scroll-proportion="0.0">
+        <state line="104" column="55" selection-start="3423" selection-end="3423" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flatfiles/test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="69" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0">
+        <state line="39" column="44" selection-start="3975" selection-end="3975" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/outputCat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="0" selection-start="9253" selection-end="9253" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nlp/TextProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="13" selection-start="789" selection-end="789" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#567#578#0" expanded="true" />
-          </folding>
+        <state line="31" column="44" selection-start="941" selection-end="941" vertical-scroll-proportion="0.027829314">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svmProc/SVMProcessing.py">
+    <entry file="file://$PROJECT_DIR$/some">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="2604" selection-end="2604" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#88#109#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="22" column="4" selection-start="1221" selection-end="1225" vertical-scroll-proportion="0.9013158" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="712" selection-end="712" vertical-scroll-proportion="0.28895184">
-          <folding>
-            <element signature="e#328#364#0" expanded="true" />
-          </folding>
+        <state line="45" column="17" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docset">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185200" column="16" selection-start="2672948" selection-end="2672948" vertical-scroll-proportion="0.52012384" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flatfiles/trainf.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="659" column="69" selection-start="89904" selection-end="89904" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordset">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="348" column="3" selection-start="4910" selection-end="4913" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flatfiles/sports_large">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="650" column="43" selection-start="61662" selection-end="61662" vertical-scroll-proportion="0.35820895" />
       </provider>
     </entry>
   </component>
