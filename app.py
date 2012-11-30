@@ -19,46 +19,30 @@ B. Test
 C. Modify
 '''
 from nlp import TextProcessing as tp
-
-from database import Database as db
-from database import TestDatabase as tdb
-#from twist.stream import collectTweets
 from svmProc import SVMProcessing as svmp
 
 if __name__=='__main__':
     flow=input("1.Train 2.Classify 3.Re-classify")
     if flow==1:
-        #initialize the databases
-        #db.clear()
-
-        #stream twitter data
-        #to-do insert python streaming code here
         #Pre-process tweets
-        #tp.process(1)
-
+        wordId,tweetId=tp.process(1)
         #TF-IDF
-        #db.tfidf()
+        docwords,docCatIds=svmp.createGlobalDictionary(wordId,tweetId,flow)
         #SVM Processing
         #1. Create libSVM file
-        svmp.createTrainFile()
+        svmp.createTrainFile(docwords,docCatIds)
         #2. Train the SVM
         #svmp.trainSVM()
+        svmp.trainliblinear()
     elif flow==2:
-        #initialize the test databases
-        #tdb.InitializeTestDB()
-        tdb.clear()
-        #stream twitter data
-        #to-do insert python streaming code here
         #Pre-process tweets
-        tp.process(2)
-        tdb.tfidf()
+        wordId,tweetId=tp.process(2)
+        #TF-IDF
+        docwords,docCatIds=svmp.createGlobalDictionary(wordId,tweetId,flow)
         #SVM Processing
         #1. Create libSVM file
-        svmp.createTestFile()
+        svmp.createTestFile(docwords,docCatIds)
         #2. Train the SVM
         svmp.testSVM()
-    elif flow==3:
-        print "nothing"
-
-        # Edit the databases with the re-classified tweet
-        # Fit the re-classified tweet into the SVM
+    else:
+        print "nothing to do here"

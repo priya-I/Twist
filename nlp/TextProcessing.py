@@ -1,8 +1,6 @@
 #!/usr/bin/python
-from database import Database, TestDatabase
 
-
-__author__ = 'rahmaniacc'
+__author__ = 'rahmaniacc','priya'
 
 
 ##################################################
@@ -31,17 +29,28 @@ def process(flow):
     if flow==2:
         filenames=['./flatfiles/test.txt']
     else:
-        filenames=['./flatfiles/sports_small','./flatfiles/finance_small']
+        filenames=['./flatfiles/sports_med','./flatfiles/finance_med']
     wordList = nltk.corpus.words.words()
     stopwordsfile = open('./flatfiles/stopwords.txt')
     stopwords = set([word for word in stopwordsfile.read().split('\n')])
     stopwords = [porter.stem(s) for s in stopwords]
     lineno = 0
     catId = 0
-    wordId = 1
-    #filenames = ['sport.txt','finance.txt']
-    #filenames=['../flatfiles/sports','../flatfiles/finance']
-
+    wordId = 0
+    maxwordid=0
+    wf=open("wordset",'r+a')
+    maxwordid=0
+    wordlist=[]
+    for entry in wf:
+        splitEnt=entry.partition('\t')
+        if int(splitEnt[0])>int(maxwordid):
+            maxwordid=splitEnt[0]
+        wordlist.append(str(splitEnt[2]).strip())
+    maxwordId=int(maxwordid)
+    if flow==1:
+        df=open("docset",'w')
+    else:
+        df=open("testdocset",'w')
     for f in filenames:
         if flow==2:
             catId=0
@@ -49,35 +58,28 @@ def process(flow):
             catId += 1
         with open(f) as tweet_list:
             for line in tweet_list:
-                wordidList = []
-                freqList = []
                 lineno += 1
                 print lineno
-                #input = 'hello, how are you ? I\'m jumping with joy because she is soooooooooo cuuuttee and !!!!.'
-                #unigrams = [spellcheck.spellcheck(word) for word in removePunctuations(line.split())]
                 unigrams = [word for word in removePunctuations(line.split())]
                 unigrams = [u for u in unigrams if unigrams and len(unigrams)>0]
                 list = [porter.stem(word)  for word in unigrams if word]
                 list = [word for word in list if word not in stopwords]
                 bigrams = [list[i] + " " + list[i + 1] for i in range(len(list) - 1)]
-
                 wordCount = {}
                 allTokens = list + bigrams
                 [wordCount.__setitem__(w,1+wordCount.get(w,0)) for w in allTokens]
-
                 for w in wordCount.keys():
-                    if w not in wordsintweets:
-                        wordsintweets.append(w)
-                        wordidList.append((wordId,w))
-                        freqList.append((lineno,catId,wordId,wordCount[w]))
-                        wordId +=1
-
-                if flow==1:
-                    Database.InsertWords(wordidList)
-                    Database.InsertTweets(freqList)
-                elif flow==2:
-                    TestDatabase.InsertWords(wordidList)
-                    TestDatabase.InsertTweets(freqList)
+                    if w not in wordlist:
+                        maxwordId +=1
+                        wordlist.append(w)
+                        wf.write('\n'+str(maxwordId)+"\t"+str(w))
+                        wordId=maxwordId
+                    else:
+                        wordId=wordlist.index(w)+1
+                    df.write(str(lineno)+"\t"+str(catId)+"\t"+str(wordId)+"\t"+str(wordCount[w])+"\n")
+    wf.close()
+    df.close()
+    return maxwordId,lineno
 
 def findSuggestions(word):
 
