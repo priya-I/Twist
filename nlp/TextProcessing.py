@@ -45,9 +45,9 @@ def process(flow):
         maxwordid=0
         for entry in wf:
             splitEnt=entry.partition('\t')
-        if int(splitEnt[0])>int(maxwordid):
-            maxwordid=splitEnt[0]
-        wordlist.append(str(splitEnt[2]).strip())
+            if int(splitEnt[0])>int(maxwordid):
+                maxwordid=splitEnt[0]
+            wordlist.append(str(splitEnt[2]).strip())
     else:
         wf=open("wordset",'w')
         df=open("docset",'w')
@@ -77,6 +77,7 @@ def process(flow):
                         wordId=maxwordId
                     else:
                         wordId=wordlist.index(w)+1
+                    print "Word: "+str(w)+"      ----------WordID: "+str(wordId)
                     df.write(str(lineno)+"\t"+str(catId)+"\t"+str(wordId)+"\t"+str(wordCount[w])+"\n")
     wf.close()
     df.close()
