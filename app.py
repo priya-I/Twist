@@ -25,25 +25,25 @@ if __name__=='__main__':
     flow=input("1.Train 2.Classify 3.Re-classify")
     if flow==1:
         #Pre-process tweets
-        #wordId,tweetId=tp.process(1)
+        wordId,tweetId=tp.process(1)
         #wordId=91774
         #tweetId=10000
         #TF-IDF
-        #docwords,docCatIds=svmp.createGlobalDictionary(wordId,tweetId,flow)
+        docwords,docCatIds=svmp.createGlobalDictionary(wordId,tweetId,flow)
         #SVM Processing
         #1. Create libSVM file
-        #svmp.createTrainFile(docwords,docCatIds,tweetId)
+        svmp.createTrainFile(docwords,docCatIds,tweetId)
         #2. Train the SVM
         #svmp.trainSVM()
         svmp.trainliblinear()
     elif flow==2:
         #Pre-process tweets
-        #wordId,tweetId=tp.process(2)
+        wordId,tweetId=tp.process(2)
         #TF-IDF
-        #docwords,docCatIds=svmp.createGlobalDictionary(wordId,tweetId,flow)
+        docwords,docCatIds=svmp.createGlobalDictionary(wordId,tweetId,flow)
         #SVM Processing
         #1. Create libSVM file
-        #svmp.createTestFile(docwords,docCatIds,tweetId)
+        svmp.createTestFile(docwords,docCatIds,tweetId)
         #2. Train the SVM
         svmp.testSVM()
     else:

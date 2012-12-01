@@ -21,6 +21,16 @@ def main():
 
 def spellcheck(unigram):
 
+
+    pos_tag = nltk.pos_tag(nltk.word_tokenize(unigram))
+
+    if pos_tag and len(pos_tag) == 1:
+        unigram,pos = pos_tag[0]
+        if pos in ['NNP','NNPS']:
+            return unigram
+    else:
+        return unigram
+
     pattern = re.compile(r"(.)\1{2,}", re.DOTALL)
     pattern1 =  re.compile("(ing)$")  #hack for all words ending in ing
     if len(pattern.findall(unigram)) > 0:
