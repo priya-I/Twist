@@ -6,16 +6,13 @@ Modified on Nov 29, 2012 --Priya
 '''
 from svmutil import *
 from liblinearutil import *
+from sklearn.metrics import precision_recall_fscore_support
 
-def createGlobalDictionary(maxWords, maxTweets,flow):
-    #gdf=open("./globalDict",'a+')
-
+def cacheTweetsInList(maxWords, maxTweets,flow):
     if flow==1:
         docf=open("docset")
-        #categories=['','sports','finance']
     else:
         docf=open("testdocset")
-        #categories=['uncategorized']
 
     tweetWords={}
     #docCats={}
@@ -31,40 +28,28 @@ def createGlobalDictionary(maxWords, maxTweets,flow):
             tweetWords[long(tweetID)]=wordIndexInTweet
         else:
             tweetWords[long(tweetID)]= str(tweetWords[long(tweetID)])+"\t"+str(wordIndexInTweet)
-        #docCats[long(tweetID)]=categories[long(catID)]
         docCatIds[long(tweetID)]=long(catID)
 
-    #This portion makes entries into the global dictionary
-    '''
-    print "Max Words "+str(maxWords)
-    for tweet in range(1,maxTweets+1):
-        print "Tweet id: "+str(tweet)
-        docentry=tweetWords[tweet]
-        wordsInThisTweet=docentry.split()
-        for word in range(1,maxWords+1):
-            if str(word) in wordsInThisTweet:
-                flag=1
-            else:
-                flag=0
-            gdf.write(str(flag)+" ")
-            #For input into scikit-LR
-            #if i==maxWords:
-            #   gdf.write(str(flag)+","+docCats[j])
-        gdf.write("\n")
-        '''
     return tweetWords,docCatIds
 
 
 def createTrainFile(docwords,docCatIds,maxTweets):
-        f = open('./flatfiles/trainf.txt', 'w')
+        f = open('./flatfiles/trainAll.txt', 'w')
         df=open('./docset')
         for tweetid in range(1,int(maxTweets)+1):
-            catid=docCatIds[tweetid]
-            words=docwords[tweetid]
-            f.write(str(catid))
-            for word in words.split():
-                f.write(" "+str(word)+":"+str(1)+" ")
-            f.write("\n")
+            try:
+                catid=docCatIds[tweetid]
+                words=docwords[tweetid]
+                f.write(str(catid))
+                for word in words.split():
+                    f.write(" "+str(word)+":"+str(1)+" ")
+                f.write("\n")
+            except KeyError:
+                print tweetid
+                f.write(str(catid))
+                for word in words.split():
+                    f.write(" "+str(word)+":"+str(1)+" ")
+                f.write("\n")
         df.close()
         f.close()
 
@@ -73,8 +58,13 @@ def createTestFile(docwords,docCatIds,maxTweets):
     f = open('./flatfiles/testf.txt', 'w')
     df=open('./testdocset')
     for tweetid in range(1,int(maxTweets)+1):
-        catid=docCatIds[tweetid]
-        words=docwords[tweetid]
+        try :
+            catid=docCatIds[tweetid]
+            words=docwords[tweetid]
+        except KeyError:
+            f.write(str(0)+" "+str(0)+":"+str(1)+" ")
+            f.write("\n")
+            continue
         f.write(str(catid))
         for word in words.split():
             f.write(" "+str(word)+":"+str(1)+" ")
@@ -83,39 +73,86 @@ def createTestFile(docwords,docCatIds,maxTweets):
     f.close()
 
 def trainliblinear():
-    labels,features=svm_read_problem('./flatfiles/trainf.txt')
-    #m=train(labels,features,'-c 4 -e 0.1 -v 5')
-    m=train(labels,features,'-c 10 -w1 1 -w2 5')
-    #m=train(labels,features,'-s 0 -v 5')
-    #m=train(labels,features,'-v 5 -e 0.001')
-    #comment out the line below if using cross validation(-v)
-    p_label, p_acc, p_val = predict(labels, features, m)
-    save_model('SFModel.model',m)
+    #labels,features=svm_read_problem('./flatfiles/trainf.txt')
+    labels,features=svm_read_problem('./flatfiles/trainf_35K.txt')
 
-def trainSVM():
-    labels,features=svm_read_problem('./flatfiles/trainf.txt')
-    m=svm_train(labels,features,'-c 4 -t 0 -e 0.1 -m 800 -v 10')
-    #p_label, p_acc, p_val = svm_predict(labels, features, m) --comment out if using cross validation
-    #svm_save_model('TwoCatsModel.model',m)
+    #m=train(labels,features,'-c 4 -e 0.1 -v 5')
+    #m=train(labels,features,'-c 10 -w1 1 -w2 5')
+    costs={1000,100,10,1,0.1,0.01,0.001}
+    types={0,1,2,3,4,5,6,7}
+    f1 = open('./flatfiles/trainfoutput4classes.txt', 'w')
+
+    ################################################
+    exp_label=[]
+    for l in range(1,49):
+        exp_label.append(1)
+        print  str(l)+"--->"+str(exp_label[l-1])
+    for l in range(49,106):
+        exp_label.append(2)
+        print  str(l)+"--->"+str(exp_label[l-1])
+    for l in range(106,149):
+        exp_label.append(3)
+        print  str(l)+"--->"+str(exp_label[l-1])
+    for l in range(149,214):
+        exp_label.append(4)
+        print  str(l)+"--->"+str(exp_label[l-1])
+        ##################################################
+    for cost in costs:
+        for type in types:
+            #options='-s '+str(type)+' -c '+str(cost)+' -v '+str(10)+' -q'
+            options='-s '+str(type)+' -c '+str(cost)+' -q'
+            #options='-s 7 -c 0.01 -q'
+            print options
+            m=train(labels,features,str(options))
+            p_label, p_acc, p_val = predict(labels, features, m)
+            #save_model('SFETModel.model',m)
+            #ACC,MSE,SCC=evaluations(labels,p_label)
+            #testSVM()
+            #print classification_report(labels, p_label)
+            ##############################
+            labels1,features1=svm_read_problem('./flatfiles/testf.txt')
+            p_label1, p_acc, p_val = predict(labels1, features1, m)
+            prec,rec,f1,sup = precision_recall_fscore_support(exp_label, p_label1, beta=1.0, labels=None, pos_label=None, average='macro')
+            rec= "%0.2f" % rec
+            prec ="%0.2f" % prec
+            f1.write("\t"+str(rec)+"\t"+str(prec))
+            f1.write("\n")
+            svmOutput(p_label1)
+            ##############################################
+
+def trainLibLinear():
+    #labels,features=svm_read_problem('./flatfiles/trainf.txt')
+    labels,features=svm_read_problem('./flatfiles/trainAll.txt')
+    options='-s 6 -c 10 -w1 2 -w2 5 -w3 2 -w4 2'
+    m=train(labels,features,str(options))
+    p_label, p_acc, p_val = predict(labels, features, m)
+    #prec,rec,f1,sup = precision_recall_fscore_support(labels, p_label, beta=1.0, labels=None, pos_label=None, average='macro')
+    save_model('SFETClassModel.model',m)
+
+def plotgraph():
+    searchfile = open("./flatfiles/trainfoutput4classes.txt", "r")
+    for line in searchfile:
+        if "avg / total" in line: print line
+    searchfile.close()
 
 def testSVM():
-    m=load_model('SFModel.model')
-    #labels,features=svm_read_problem('/home/priya/Twist/flatfiles/testf.txt')
+    m=load_model('SFETClassModel.model')
     labels,features=svm_read_problem('./flatfiles/testf.txt')
     p_label, p_acc, p_val = predict(labels, features, m)
-    ACC, MSE, SCC = evaluations(labels, p_label)
-    print p_label
-    print "Results"+ str(ACC)+" "+str(MSE)+" "+str(SCC)
     svmOutput(p_label)
 
 
 def svmOutput(p_label):
-    category=['Sports','Finance']
+    category=['Sports','Finance','Entertainment','Technology']
     testf=open('./flatfiles/test.txt')
     i=0
     with open("outputCat",'w') as of:
         for tweet in testf:
-            print category[int(p_label[i])-1]
-            of.write(category[int(p_label[i])-1]+'->'+tweet+'\n')
+            try:
+                print category[int(p_label[i])-1]
+                of.write(category[int(p_label[i])-1]+'->'+tweet+'\n')
+            except IndexError:
+                print 'INVALID TWEET'
+                of.write('INVALID ->'+tweet+'\n')
             i+=1
     of.close()

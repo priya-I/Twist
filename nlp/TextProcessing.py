@@ -31,7 +31,7 @@ def process(flow):
     if flow==2:
         filenames=['./flatfiles/test.txt']
     else:
-        filenames=['./flatfiles/sports_smaller','./flatfiles/finance_smaller']
+        filenames=['./flatfiles/sports_xl','./flatfiles/finance_xl','./flatfiles/entertain_xl','./flatfiles/technology_xl']
     wordList = nltk.corpus.words.words()
     stopwordsfile = open('./flatfiles/stopwords.txt')
     stopwords = set([word for word in stopwordsfile.read().split('\n')])
@@ -42,7 +42,8 @@ def process(flow):
     maxwordid=0
     wordlist=[]
     if flow==2:
-        wf=open("wordset",'r+a')
+        wf=open("wordset",'a+')
+        wf.write('\n')
         df=open("testdocset",'w')
         maxwordid=0
         for entry in wf:
@@ -85,7 +86,7 @@ def process(flow):
                     if w not in wordlist:
                         maxwordId +=1
                         wordlist.append(w)
-                        wf.write('\n'+str(maxwordId)+"\t"+str(w))
+                        wf.write(str(maxwordId)+"\t"+str(w)+'\n')
                         wordId=maxwordId
                     else:
                         wordId=wordlist.index(w)+1
