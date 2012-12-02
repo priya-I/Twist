@@ -15,16 +15,16 @@ if __name__=='__main__':
         #svmp.createTrainFile(docwords,docCatIds,tweetId)
         #2. Train the SVM
         #svmp.trainSVM()
-        #svmp.trainliblinear()
-        svmp.trainLibLinear()
+        svmp.trainliblinear()
+        #svmp.trainLibLinear()
     elif flow==2:
         #Pre-process tweets
-        wordId,tweetId=tp.process(2)
+        #wordId,tweetId=tp.process(2)
         #TF-IDF
-        docwords,docCatIds=svmp.cacheTweetsInList(wordId,tweetId,flow)
+        #docwords,docCatIds=svmp.cacheTweetsInList(wordId,tweetId,flow)
         #SVM Processing
         #1. Create libSVM file
-        svmp.createTestFile(docwords,docCatIds,tweetId)
+        #svmp.createTestFile(docwords,docCatIds,tweetId)
         #2. Train the SVM
         svmp.testSVM()
     else:

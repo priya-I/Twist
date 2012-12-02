@@ -74,29 +74,16 @@ def createTestFile(docwords,docCatIds,maxTweets):
 
 def trainliblinear():
     #labels,features=svm_read_problem('./flatfiles/trainf.txt')
-    labels,features=svm_read_problem('./flatfiles/trainf_35K.txt')
+    labels,features=svm_read_problem('./flatfiles/trainAll.txt')
 
     #m=train(labels,features,'-c 4 -e 0.1 -v 5')
     #m=train(labels,features,'-c 10 -w1 1 -w2 5')
-    costs={1000,100,10,1,0.1,0.01,0.001}
-    types={0,1,2,3,4,5,6,7}
-    f1 = open('./flatfiles/trainfoutput4classes.txt', 'w')
+    costs={10,5}
+    types={5,6,7}
+    of = open('./flatfiles/trainOutput.txt', 'w')
 
     ################################################
-    exp_label=[]
-    for l in range(1,49):
-        exp_label.append(1)
-        print  str(l)+"--->"+str(exp_label[l-1])
-    for l in range(49,106):
-        exp_label.append(2)
-        print  str(l)+"--->"+str(exp_label[l-1])
-    for l in range(106,149):
-        exp_label.append(3)
-        print  str(l)+"--->"+str(exp_label[l-1])
-    for l in range(149,214):
-        exp_label.append(4)
-        print  str(l)+"--->"+str(exp_label[l-1])
-        ##################################################
+    exp_label=[4,4,1,1,2,1,1,1,2,1,1,3,2,2,2,4,4,2,2]
     for cost in costs:
         for type in types:
             #options='-s '+str(type)+' -c '+str(cost)+' -v '+str(10)+' -q'
@@ -115,15 +102,17 @@ def trainliblinear():
             prec,rec,f1,sup = precision_recall_fscore_support(exp_label, p_label1, beta=1.0, labels=None, pos_label=None, average='macro')
             rec= "%0.2f" % rec
             prec ="%0.2f" % prec
-            f1.write("\t"+str(rec)+"\t"+str(prec))
-            f1.write("\n")
+            print "Recall "+str(rec)+"\t"+"Precision"+str(prec)
+            of.write("\t"+str(rec)+"\t"+str(prec))
+            of.write("\n")
             svmOutput(p_label1)
+    of.close()
             ##############################################
 
 def trainLibLinear():
     #labels,features=svm_read_problem('./flatfiles/trainf.txt')
     labels,features=svm_read_problem('./flatfiles/trainAll.txt')
-    options='-s 6 -c 10 -w1 2 -w2 5 -w3 2 -w4 2'
+    options='-s 6 -c 5'
     m=train(labels,features,str(options))
     p_label, p_acc, p_val = predict(labels, features, m)
     #prec,rec,f1,sup = precision_recall_fscore_support(labels, p_label, beta=1.0, labels=None, pos_label=None, average='macro')
@@ -146,7 +135,7 @@ def svmOutput(p_label):
     category=['Sports','Finance','Entertainment','Technology']
     testf=open('./flatfiles/test.txt')
     i=0
-    with open("outputCat",'w') as of:
+    with open("./flatfiles/outputCat",'w') as of:
         for tweet in testf:
             try:
                 print category[int(p_label[i])-1]
