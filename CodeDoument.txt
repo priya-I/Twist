@@ -1,0 +1,132 @@
+The entire project is structured in the following way
+
+Twist
+-----bot
+	 -----bot.py
+	 -----state.txt
+-----flatfiles
+	-----entertain_xl
+	-----finance
+	-----finance_large
+	-----finance_med
+	-----finance_small
+	-----finance_smaller
+	-----finance_xl
+	-----outputCat
+	-----sports
+	-----sports_large
+	-----sports_med
+	-----sports_small
+	-----sports_smaller
+	-----sports_xl
+	-----stopwords.txt
+	-----technology
+	-----technology_xl
+	-----test.txt
+	-----test1
+	-----testf.txt
+	-----testf1.txt
+	-----testf_3000.txt
+	-----testfile.txt
+	-----trainAll.txt
+	-----trainf.txt
+	-----trainfile.txt
+	-----trainOutput.txt
+-----nlp
+	-----__init__.py
+	-----langid.py
+	-----spellcheck.py
+	-----TextProcessing.py
+-----stream
+	-----__init__.py
+	-----collectTweets.java
+	-----collectTweets.py
+	-----collectTweetsbyCat.py
+	-----collectTweetsbyCategory.java
+-----svmProc
+	-----__init__.py
+	-----SVMProcessing.py
+	-----test.py
+-----__init__.py
+-----app.py
+-----docset
+-----outputCat
+-----plotroc.py
+-----SFETClassModel.model
+-----SFETModel.model
+*-----SFModel.model
+-----testdocset
+-----testt
+-----trainf.txt
+-----wordset
+
+
+BOT
+
+This contains the code that operates the twitter bot. This contains the logic to authenticate the bot with its account, read the user time line, call the necessary modules to classify the tweets and etweet the category.
+
+NLP
+
+All the text processing code is contained in this module.
+
+TextProcessing.py - this is the interface that is called during the trainign and classification. From here the calls to the spell check module is made
+
+Logic:
+
+		##################################################
+		# 1. Generate Unigrams                           #
+		# 2. Filter punctuations.                        #
+		# 3. Reduce strings. spell correct, stem 		 #
+		# 4. Generate bigrams                            #
+		# 5. Stop words removal                          #
+		# 6. Language Identification                                				 #
+		#   											 #
+		#                							     #
+		##################################################
+
+Spell check.py
+
+This contains the logic needed to implement the Norvig's spell check. 
+
+1. Determine Part of speech and return all proper nouns without any check
+2. Detemrine if any word contains the same letter more than three times consecutively (ex : cuuuuttteee)
+3. Reduce such strings to their normal spelling.
+4. For all words, compare with NLTK's dictionary and run spell check if needed.
+Spell check: 
+	1. For each word, split the word into 2 at all possible positions. - Ex -> hell is split as (h,ell), (he,ll), (hel,l), (hell,) etc
+	2. This becomes the input for the remaining steps
+	3. For each pair in the list we do the following
+		a. Add a new letter from a though z at every possible position. So 'hell' yields ahell,bhell...zhell, haell,hbell..hzell etc.
+		b. Edit each letter and substitute that with a through z. Ex, 'hell' yields aell,bell,...zell, hall,hbll..hzll etc..
+		c.Delete each letter. so hell becomes, ell, hll, and hel etc.
+		d. swap every pair of letters. For ex -> hell yields ehll, hlel, hell etc.
+	4. Create a set of distinct suggestions after these 4 operations.
+	5. Fitler out all invalid words like 'aell'.
+	6. retruns the final list.
+
+LangId.py
+
+This contains the logic as suggested by Misja Hoebe to use nltks trigram sets to detect language
+
+
+1. Nltk has trigram sets for many languages with their wieghts in their corpus
+2. From the corpus load the weights for english, french spanish
+3. From the tweets, genrate trigrams and their frequencies.
+4. This is then compared with the nltk corpus for a language match.
+
+
+
+SVM
+
+This directory contains the ML code requried to classify the tweets.
+
+SVMProcessing.py
+
+contans the core logic that trains and creates the model for classification, classifies the tweets and finally calculates metrics for the classification. 
+
+1. Loads the tweets into a global cache. this contains the tweet and word ids for all tweets in the set. 
+2. Creates different models by varying the cost and other parameters and trains a set of tweets. 
+3. Calculates the metrics for each model by computing the precision and recall values and decides on the apt model to be used. 
+4. Once the model is decided, the tweets can be classifed using the model.
+5. Liblinear package is used to train the machine. 
+

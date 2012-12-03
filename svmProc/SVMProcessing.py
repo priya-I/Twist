@@ -8,6 +8,7 @@ from svmutil import *
 from liblinearutil import *
 from sklearn.metrics import precision_recall_fscore_support
 
+
 def cacheTweetsInList(maxWords, maxTweets,flow):
     if flow==1:
         docf=open("docset")
@@ -34,7 +35,7 @@ def cacheTweetsInList(maxWords, maxTweets,flow):
 
 
 def createTrainFile(docwords,docCatIds,maxTweets):
-        f = open('./flatfiles/trainAll.txt', 'w')
+        f = open('../flatfiles/trainAll.txt', 'w')
         df=open('./docset')
         for tweetid in range(1,int(maxTweets)+1):
             try:
@@ -124,18 +125,21 @@ def plotgraph():
         if "avg / total" in line: print line
     searchfile.close()
 
-def testSVM():
-    m=load_model('SFETClassModel.model')
+def testSVM(flag=None):
+    #m=load_model('SFETClassModel.model')
+    m=load_model('./SFETModel.model')
     labels,features=svm_read_problem('./flatfiles/testf.txt')
     p_label, p_acc, p_val = predict(labels, features, m)
     svmOutput(p_label)
+    if flag is not None:
+        return p_label
 
 
 def svmOutput(p_label):
     category=['Sports','Finance','Entertainment','Technology']
     testf=open('./flatfiles/test.txt')
     i=0
-    with open("./flatfiles/outputCat",'w') as of:
+    with open("./outputCat",'w') as of:
         for tweet in testf:
             try:
                 print category[int(p_label[i])-1]

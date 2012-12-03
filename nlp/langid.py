@@ -8,13 +8,18 @@ from nltk.corpus.util import LazyCorpusLoader
 from nltk.corpus.reader.api import CorpusReader
 from nltk.corpus.reader.util import StreamBackedCorpusView, concat
 
+
 class LangIdCorpusReader(CorpusReader):
     CorpusView = StreamBackedCorpusView
+
+
+    #get the weight of each trigram stored in the nltk corpus
     def _get_trigram_weight(self, line):
         data = line.strip().split(' ')
         if len(data) == 2:
             return data[1], int(data[0])
 
+    #fetches the nltk corpus and reads blocks of trigrams and gets the weight of each trigram
     def _read_trigram_block(self, stream):
         freqs = []
         for i in range(20): # Read 20 lines at a time.
@@ -27,9 +32,10 @@ class LangIdCorpusReader(CorpusReader):
 
 class LangDetect(object):
     language_trigrams = {}
+    #laod the corpus text
     langid = LazyCorpusLoader('langid', LangIdCorpusReader, r'(?!\.).*\.txt')
 
-
+    #languages en, frenchm german and spanish are lodaed
     def __init__(self, languages=['en', 'fr', 'de', 'es']):
         for lang in languages:
             self.language_trigrams[lang] = FreqDist()
@@ -37,10 +43,13 @@ class LangDetect(object):
                 self.language_trigrams[lang].inc(f[0], f[1])
 
     def detect(self, text):
+
+        #tokenize the words
         words    = nltk_word_tokenize(text.lower())
         trigrams = {}
         scores   = dict([(lang, 0) for lang in self.language_trigrams.keys()])
 
+        #get the trigrams and insert count of trigrams in a list
         for match in words:
             for trigram in self.get_word_trigrams(match):
                 if not trigram in trigrams.keys():
@@ -49,6 +58,7 @@ class LangDetect(object):
 
         total = sum(trigrams.values())
 
+        #normalie the frequency and sort according to the keys.
         for trigram, count in trigrams.items():
             for lang, frequencies in self.language_trigrams.items():
                 # normalize and add to the total score
