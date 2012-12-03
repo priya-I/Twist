@@ -36,7 +36,7 @@ def cacheTweetsInList(maxWords, maxTweets,flow):
 
 def createTrainFile(docwords,docCatIds,maxTweets):
         f = open('../flatfiles/trainAll.txt', 'w')
-        df=open('./docset')
+        df=open('../docset')
         for tweetid in range(1,int(maxTweets)+1):
             try:
                 catid=docCatIds[tweetid]
@@ -56,8 +56,8 @@ def createTrainFile(docwords,docCatIds,maxTweets):
 
 
 def createTestFile(docwords,docCatIds,maxTweets):
-    f = open('./flatfiles/testf.txt', 'w')
-    df=open('./testdocset')
+    f = open('../flatfiles/testf.txt', 'w')
+    df=open('../testdocset')
     for tweetid in range(1,int(maxTweets)+1):
         try :
             catid=docCatIds[tweetid]
@@ -74,14 +74,14 @@ def createTestFile(docwords,docCatIds,maxTweets):
     f.close()
 
 def trainliblinear():
-    #labels,features=svm_read_problem('./flatfiles/trainf.txt')
-    labels,features=svm_read_problem('./flatfiles/trainAll.txt')
+    #labels,features=svm_read_problem('../flatfiles/trainf.txt')
+    labels,features=svm_read_problem('../flatfiles/trainAll.txt')
 
     #m=train(labels,features,'-c 4 -e 0.1 -v 5')
     #m=train(labels,features,'-c 10 -w1 1 -w2 5')
     costs={10,5}
     types={5,6,7}
-    of = open('./flatfiles/trainOutput.txt', 'w')
+    of = open('../flatfiles/trainOutput.txt', 'w')
 
     ################################################
     exp_label=[4,4,1,1,2,1,1,1,2,1,1,3,2,2,2,4,4,2,2]
@@ -98,7 +98,7 @@ def trainliblinear():
             #testSVM()
             #print classification_report(labels, p_label)
             ##############################
-            labels1,features1=svm_read_problem('./flatfiles/testf.txt')
+            labels1,features1=svm_read_problem('../flatfiles/testf.txt')
             p_label1, p_acc, p_val = predict(labels1, features1, m)
             prec,rec,f1,sup = precision_recall_fscore_support(exp_label, p_label1, beta=1.0, labels=None, pos_label=None, average='macro')
             rec= "%0.2f" % rec
@@ -111,8 +111,8 @@ def trainliblinear():
             ##############################################
 
 def trainLibLinear():
-    #labels,features=svm_read_problem('./flatfiles/trainf.txt')
-    labels,features=svm_read_problem('./flatfiles/trainAll.txt')
+    #labels,features=svm_read_problem('../flatfiles/trainf.txt')
+    labels,features=svm_read_problem('../flatfiles/trainAll.txt')
     options='-s 6 -c 5'
     m=train(labels,features,str(options))
     p_label, p_acc, p_val = predict(labels, features, m)
@@ -120,15 +120,15 @@ def trainLibLinear():
     save_model('SFETClassModel.model',m)
 
 def plotgraph():
-    searchfile = open("./flatfiles/trainfoutput4classes.txt", "r")
+    searchfile = open("../flatfiles/trainfoutput4classes.txt", "r")
     for line in searchfile:
         if "avg / total" in line: print line
     searchfile.close()
 
 def testSVM(flag=None):
     #m=load_model('SFETClassModel.model')
-    m=load_model('./SFETModel.model')
-    labels,features=svm_read_problem('./flatfiles/testf.txt')
+    m=load_model('../SFETModel.model')
+    labels,features=svm_read_problem('../flatfiles/testf.txt')
     p_label, p_acc, p_val = predict(labels, features, m)
     svmOutput(p_label)
     if flag is not None:
@@ -137,9 +137,9 @@ def testSVM(flag=None):
 
 def svmOutput(p_label):
     category=['Sports','Finance','Entertainment','Technology']
-    testf=open('./flatfiles/test.txt')
+    testf=open('../flatfiles/test.txt')
     i=0
-    with open("./outputCat",'w') as of:
+    with open("../outputCat",'w') as of:
         for tweet in testf:
             try:
                 print category[int(p_label[i])-1]

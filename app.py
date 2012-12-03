@@ -13,7 +13,10 @@ def classify(flag=None):
     #1. Create libSVM file
     svmp.createTestFile(docwords,docCatIds,tweetId)
     #2. Train the SVM
-    svmp.testSVM()
+    if flag is not None:
+        return svmp.testSVM(1)
+    else:
+        svmp.testSVM()
 
 def train():
     #Pre-process tweets

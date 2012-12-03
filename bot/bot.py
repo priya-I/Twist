@@ -52,7 +52,7 @@ def retrievestate(statef):
 def retweet(labels):
 
     category=['Sports','Finance','Entertainment','Technology']
-    #testf=open('./flatfiles/test.txt')
+    #testf=open('../flatfiles/test.txt')
     testf=open('tempFile.txt')
     tweets = [tweet for tweet in testf.readlines()]
     i=0
@@ -61,7 +61,7 @@ def retweet(labels):
         #print ('Retweeting #%d' % (tweets[i],))
         usern,tweet = tweets[i].split('\t')
         print "REtweeting " +tweet
-        tw = category[int(labels[i])-1] + ' -> RT @' + usern + ":" + tweet.text
+        tw = category[int(labels[i])-1] + ' -> RT @' + usern + ":" + tweet
         #tw = 'Sports Tweet -> ' + tweets[i]
         api.update_status(tw[:140])
 
@@ -73,7 +73,7 @@ def main():
     #3. tempFile - contains username and tweet in the same order . This is used to retweet the tweet along with the user name.
 
     since_id = retrievestate('state.txt')
-    testfile = open('./flatfiles/test.txt','w+')
+    testfile = open('../flatfiles/test.txt','w+')
     tempFile = open('tempFile.txt','w+')
 
     #fetch all the user time line.
