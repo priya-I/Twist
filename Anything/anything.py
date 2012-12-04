@@ -78,7 +78,7 @@ def tweet():
 
 
 
-    return flask.render_template('tweet.html', tweets = retTuple)
+    return flask.render_template('index.html', tweets = retTuple)
 
 @app.route("/classify", methods=['GET','POST'])
 def classify():
