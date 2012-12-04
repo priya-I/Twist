@@ -68,9 +68,9 @@ def process(flow):
     if flow==2:
         #file contating all the words.
         #as new word appears, it is appended to this list.
-        wf=open("wordset",'a+')
+        wf=open("../flatfiles/wordset",'a+')
         wf.write('\n')
-        df=open("testdocset",'w')
+        df=open("../flatfiles/testdocset",'w')
         maxwordid=0
         for entry in wf:
             splitEnt=entry.partition('\t')
@@ -78,8 +78,8 @@ def process(flow):
                 maxwordid=splitEnt[0]
             wordlist.append(str(splitEnt[2]).strip())
     else:
-        wf=open("wordset",'w')
-        df=open("docset",'w')
+        wf=open("../flatfiles/wordset",'w')
+        df=open("../flatfiles/docset",'w')
 
     maxwordId=int(maxwordid)
     for f in filenames:

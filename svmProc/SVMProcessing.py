@@ -4,16 +4,15 @@ Modified on Nov 29, 2012 --Priya
 
 @author: Priya, Sonali
 '''
-from svmutil import *
 from liblinearutil import *
 from sklearn.metrics import precision_recall_fscore_support
 
 
 def cacheTweetsInList(maxWords, maxTweets,flow):
     if flow==1:
-        docf=open("docset")
+        docf=open("../flatfiles/docset")
     else:
-        docf=open("testdocset")
+        docf=open("../flatfiles/testdocset")
 
     tweetWords={}
     #docCats={}
@@ -57,7 +56,7 @@ def createTrainFile(docwords,docCatIds,maxTweets):
 
 def createTestFile(docwords,docCatIds,maxTweets):
     f = open('../flatfiles/testf.txt', 'w')
-    df=open('../testdocset')
+    df=open('../flatfiles/testdocset')
     for tweetid in range(1,int(maxTweets)+1):
         try :
             catid=docCatIds[tweetid]
@@ -113,11 +112,11 @@ def trainliblinear():
 def trainLibLinear():
     #labels,features=svm_read_problem('../flatfiles/trainf.txt')
     labels,features=svm_read_problem('../flatfiles/trainAll.txt')
-    options='-s 6 -c 5'
+    options='-s 6 -c 5 -w1 2 -w2 5 -w3 2'
     m=train(labels,features,str(options))
     p_label, p_acc, p_val = predict(labels, features, m)
     #prec,rec,f1,sup = precision_recall_fscore_support(labels, p_label, beta=1.0, labels=None, pos_label=None, average='macro')
-    save_model('SFETClassModel.model',m)
+    save_model('sfetm.model',m)
 
 def plotgraph():
     searchfile = open("../flatfiles/trainfoutput4classes.txt", "r")
@@ -126,8 +125,7 @@ def plotgraph():
     searchfile.close()
 
 def testSVM(flag=None):
-    #m=load_model('SFETClassModel.model')
-    m=load_model('../SFETModel.model')
+    m=load_model('../SFETClassModel.model')
     labels,features=svm_read_problem('../flatfiles/testf.txt')
     p_label, p_acc, p_val = predict(labels, features, m)
     svmOutput(p_label)
