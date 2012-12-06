@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- adapted from http://eikes.github.com/facetedsearch/ -->
+<head>
+    <title>
+        Twist
+    </title>
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.css">
+</head>
+<body>
+
+<!-- html boilerplate -->
+<div id="container">
+    <h2 id="title">Twist</h2>
+    <div id="facets"></div>
+    <div id="results"></div>
+</div>
+
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/facetedsearch.js"></script>
+
+<!--data.js holds the information about instances. You will add your data here -->
+<script src="js/data.js"></script>
+
+<script>
+    var itemsTemplate =
+            '<div></div><button>Show More</button>';
+
+    var itemTemplate =
+            '<img width="100%" src="<%= obj.imageURL %>">' +
+                    '<h5 class="itemtitle"><%= obj.title %></h5>' +
+                    '<ul class="tags">' +
+                    '<% if (obj.facet1) {  %><li><%= obj.facet1 %></li><% } %>' +
+                    '<% if (obj.facet2) {  %><li><%= obj.facet2 %></li><% } %>' +
+                    '<% if (obj.facet3) {  %><li><%= obj.facet3 %></li><% } %>' +
+                    '<% if (obj.facet4) {  %><li><%= obj.facet4 %></li><% } %>' +
+                    '</ul>' +
+                    '<p class="desc"><%= obj.description %></p>';
+    var facetTemplate =
+            '<h4 class=facettitle><%= title %></h4>';
+    var facetItemTemplate =
+            '<span class=facetitemname><%= name %></span> ' + '<span class=facetitemcount>(<%= count %>)</span>';
+
+
+    //part 1. update the names of these example facets to match the name of your own facet
+    //part 2. add 2 more facets to organize your animals
+    var settings = {
+        items             : instances,
+
+        //These are the facet titles that get shown in the user interface. You will ultimatley add facet4
+        //and facet5 and rename the facets to match the facets you chose to organize your instances
+        facets            : {
+            'facet1'  : 'Category'
+        },
+        resultSelector    : 'results',
+        facetSelector     : 'facets',
+        itemTemplate      : itemTemplate,
+        itemsTemplate     : itemsTemplate,
+        facetTemplate     : facetTemplate,
+        facetItemTemplate : facetItemTemplate,
+        paginationCount   : 100,
+        orderByOptions    : {'firstname': 'First name', 'lastname': 'Last name', 'category': 'Category', 'RANDOM': 'Random'}
+    }
+
+
+    var fs = new FacetedSearch(settings);
+    var itemsView = new ItemsView({
+        itemsTemplate: settings.itemsTemplate,
+        itemTemplate: settings.itemTemplate,
+        el: document.getElementById(settings.resultSelector),
+        collection: fs.get("items")
+    });
+    itemsView.render();
+    var facetsView = new FacetsView({
+        facetTemplate: settings.facetTemplate,
+        facetItemTemplate: settings.facetItemTemplate,
+        el: document.getElementById(settings.facetSelector),
+        facets: fs.get("facets")
+    });
+    facetsView.render();
+</script>
+</body>
+</html>
