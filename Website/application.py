@@ -63,7 +63,7 @@ def tweet():
     #category=['Sports','Finance','Entertainment','Technology']
     api = db['api']
     testf = codecs.open('../flatfiles/test.txt','w+',encoding='UTF-8')
-    for tweet in Cursor(api.home_timeline).items(limit=5):
+    for tweet in Cursor(api.home_timeline).items(limit=50):
          if not tweet.user.screen_name=='TwistClassifier':
             testf.write(tweet.text + "\n")
     testf.seek(0)
