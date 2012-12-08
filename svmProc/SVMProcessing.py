@@ -6,7 +6,7 @@ Modified on Nov 29, 2012 --Priya
 '''
 from liblinearutil import *
 from sklearn.metrics import precision_recall_fscore_support
-
+import codecs
 
 def cacheTweetsInList(maxWords, maxTweets,flow):
     if flow==1:
@@ -34,8 +34,8 @@ def cacheTweetsInList(maxWords, maxTweets,flow):
 
 
 def createTrainFile(docwords,docCatIds,maxTweets):
+        X=[]
         f = open('../flatfiles/trainAll.txt', 'w')
-        df=open('../docset')
         for tweetid in range(1,int(maxTweets)+1):
             try:
                 catid=docCatIds[tweetid]
@@ -50,7 +50,6 @@ def createTrainFile(docwords,docCatIds,maxTweets):
                 for word in words.split():
                     f.write(" "+str(word)+":"+str(1)+" ")
                 f.write("\n")
-        df.close()
         f.close()
 
 
@@ -111,39 +110,104 @@ def trainliblinear():
 
 def trainLibLinear():
     #labels,features=svm_read_problem('../flatfiles/trainf.txt')
-    labels,features=svm_read_problem('../flatfiles/trainAll.txt')
-    options='-s 6 -c 5 -w1 2 -w2 5 -w3 2'
+    labels,features=svm_read_problem('../flatfiles/trainSports.txt')
+    options='-s 6 -c 5'
     m=train(labels,features,str(options))
     p_label, p_acc, p_val = predict(labels, features, m)
-    #prec,rec,f1,sup = precision_recall_fscore_support(labels, p_label, beta=1.0, labels=None, pos_label=None, average='macro')
-    save_model('sfetm.model',m)
+    save_model('sports.model',m)
 
-def plotgraph():
-    searchfile = open("../flatfiles/trainfoutput4classes.txt", "r")
-    for line in searchfile:
-        if "avg / total" in line: print line
-    searchfile.close()
+    labels,features=svm_read_problem('../flatfiles/trainFin.txt')
+    options='-s 6 -c 5'
+    m1=train(labels,features,str(options))
+    p_label, p_acc, p_val = predict(labels, features, m1)
+    save_model('finance.model',m1)
+
+    labels,features=svm_read_problem('../flatfiles/trainEnt.txt')
+    options='-s 6 -c 5'
+    m2=train(labels,features,str(options))
+    p_label, p_acc, p_val = predict(labels, features, m2)
+    save_model('entertainment.model',m2)
+
+    labels,features=svm_read_problem('../flatfiles/trainTech.txt')
+    options='-s 6 -c 5'
+    m3=train(labels,features,str(options))
+    p_label, p_acc, p_val = predict(labels, features, m3)
+    save_model('technology.model',m3)
+    testSVM()
 
 def testSVM(flag=None):
-    m=load_model('../SFETClassModel.model')
-    labels,features=svm_read_problem('../flatfiles/testf.txt')
-    p_label, p_acc, p_val = predict(labels, features, m)
-    svmOutput(p_label)
-    if flag is not None:
-        return p_label
+    m=load_model('sports.model')
+    labelsS,featuresS=svm_read_problem('../flatfiles/testf.txt')
+    s_label, p_acc, p_val = predict(labelsS, featuresS, m)
+    print "Sports:  "+str(s_label)
 
+    m1=load_model('finance.model')
+    labelsF,featuresF=svm_read_problem('../flatfiles/testf.txt')
+    f_label, p_acc, p_val = predict(labelsF, featuresF, m1)
+    print "Finance:  "+str(f_label)
 
-def svmOutput(p_label):
-    category=['Sports','Finance','Entertainment','Technology']
-    testf=open('../flatfiles/test.txt')
+    m2=load_model('entertainment.model')
+    labelsE,featuresE=svm_read_problem('../flatfiles/testf.txt')
+    e_label, p_acc, p_val = predict(labelsE, featuresE, m2)
+    print "Entertainment:  "+str(e_label)
+
+    m3=load_model('technology.model')
+    labelsT,featuresT=svm_read_problem('../flatfiles/testf.txt')
+    t_label, p_acc, p_val = predict(labelsT, featuresT, m3)
+    print "Technology:  "+str(t_label)
+
+    outf=open('../outputlabels','w+')
     i=0
+    for eachval in s_label:
+        outf.write(str(s_label[i])+","+str(f_label[i])+","+str(e_label[i])+","+str(t_label[i]))
+        i+=1
+        outf.write("\n")
+    outf.close()
+    oplabels=svmOutput()
+    return oplabels
+
+def svmOutput():
+    category=['Sports','Finance','Entertainment','Technology']
+    testf = codecs.open('../flatfiles/test.txt','r',encoding='UTF-8')
+    labelsf=open('../outputlabels','r')
+    tweetLabel=[]
+    outputLabels=[]
+    for labels in labelsf:
+        labelsT=[]
+        labels=labels.split(',')
+        for label in labels:
+            if int(float(label))==-1:
+                labelsT.append('Other')
+            else:
+                labelsT.append(category[int(float(label))-1])
+        tweetLabel.append(labelsT)
+    i=0
+
     with open("../outputCat",'w') as of:
         for tweet in testf:
             try:
-                print category[int(p_label[i])-1]
-                of.write(category[int(p_label[i])-1]+'->'+tweet+'\n')
+                showLabel=''
+                otherCount=0
+                count=0
+                #print tweetLabel[i]
+                for each in tweetLabel[i]:
+                   #print each
+                   if (each!='Other'):
+                         if showLabel=='':
+                             showLabel=each
+                         else:
+                            showLabel=showLabel+'-'+each
+                   if (each=='Other'):
+                          otherCount+=1
+                if otherCount==4:
+                    showLabel='Other'
+                print showLabel
+               # print str(showLabel)+' -> '+tweet+'\n'
+                #of.write(showLabel+' -> '+tweet+'\n')
+                outputLabels.append((showLabel,tweet))
             except IndexError:
                 print 'INVALID TWEET'
                 of.write('INVALID ->'+tweet+'\n')
             i+=1
     of.close()
+    return outputLabels

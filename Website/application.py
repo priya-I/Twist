@@ -60,23 +60,15 @@ def get_verification():
 @app.route("/tweet")
 def tweet():
     retTuple = []
-    category=['Sports','Finance','Entertainment','Technology']
+    #category=['Sports','Finance','Entertainment','Technology']
     api = db['api']
     testf = codecs.open('../flatfiles/test.txt','w+',encoding='UTF-8')
-    for tweet in Cursor(api.home_timeline).items(limit=30):
-         if not tweet.user.screen_name=='TwistSports2':
+    for tweet in Cursor(api.home_timeline).items(limit=5):
+         if not tweet.user.screen_name=='TwistClassifier':
             testf.write(tweet.text + "\n")
     testf.seek(0)
-    labels = classify()
-    print labels
-    i =0
-    for tweet in testf:
-        print tweet
-        print category[int(labels[i])-1]
-        retTuple.append((category[int(labels[i])-1], tweet))
-        i+=1
-
-
+    retTuple = classify()
+    print retTuple
 
     return flask.render_template('index.html', tweets = retTuple)
 
@@ -94,9 +86,10 @@ def classify():
     #2. Train the SVM
     #svmp.trainLibLinear()
     labels = svmp.testSVM(1)
+    #clean_dict(start_pos,end_pos)
     return labels
 
 
 if __name__ == "__main__":
     app.run()
-    #classify()
+    #svmp.svmOutput()

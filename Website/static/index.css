@@ -146,7 +146,7 @@ font-family: "Avenir", "Droid Sans", "Segoe UI", Helvetica; */
     border-radius: 0 3px 3px 0;
     margin-left:20px;
     margin-right:10px;
-    font-family: 'Gilda+Display', cursive;
+    font-family: 'Rambla', cursive;
     font-size:20px;
 }
 
@@ -173,7 +173,8 @@ font-family: "Avenir", "Droid Sans", "Segoe UI", Helvetica; */
     font-size: 1em; */
     color: #222;
     text-align:right;
-
+    font-family: 'Rambla', cursive;
+    font-size:18px;
 }
 
 
