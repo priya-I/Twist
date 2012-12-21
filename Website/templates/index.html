@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Twist- User Timeline Tweet Classifier</title>
-        <link rel="stylesheet" href="../static/index.css" type="text/css">
+		<title>Twist</title>
+        <link rel="shortcut icon" href="../static/logo.png"/>
+        <link rel="stylesheet" href="../static/index.css" type="text/css"/>
         <link href='http://fonts.googleapis.com/css?family=Rambla' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rambla">
 	</head>	
 <body>
 <div id="wrapper">
@@ -15,16 +16,22 @@
 		<img src="../static/logo.png"/>
 	</div>
 	<div id="description">
-	<h1>Twist- User Timeline Tweet Classifier</h1>
+	<h1>Twist</h1>
 	<p>I classify your tweets!</p>
 	</div>
 
 
 	<div id="tweets">
 		<ul id ="feed">
-              {% for (cat,tweet) in tweets %}
-            <li><span class=tag><span class=tail></span>{{cat}}</span>
-                ​<span class=text>{{tweet}}</span></li><br></br><br></br>
+            {% for (cat,tweet,author,userurl,image) in tweets %}
+            <li>
+                <span class=tag>
+                    <div class="tags">{{cat}}</div></span>
+                <img src={{image}}>
+                <a href={{userurl}} target="_blank"> @{{author}}</a>
+                <span class=text>{{tweet}}</span>
+            </li>
+            <br/><br/>
             {% endfor %}
 		</ul>
 	</div>

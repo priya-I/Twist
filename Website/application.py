@@ -62,15 +62,28 @@ def tweet():
     retTuple = []
     #category=['Sports','Finance','Entertainment','Technology']
     api = db['api']
+    authors=[]
+    images=[]
+    urls=[]
     testf = codecs.open('../flatfiles/test.txt','w+',encoding='UTF-8')
-    for tweet in Cursor(api.home_timeline).items(limit=50):
+    for tweet in Cursor(api.home_timeline).items(limit=15):
          if not tweet.user.screen_name=='TwistClassifier':
             testf.write(tweet.text + "\n")
+            userURL="http://twitter.com/"+str(tweet.user.screen_name)
+            urls.append(userURL)
+            authors.append(tweet.user.screen_name)
+            images.append(tweet.user.profile_image_url)
     testf.seek(0)
     retTuple = classify()
-    print retTuple
-
-    return flask.render_template('index.html', tweets = retTuple)
+    newTuple=[]
+    i=0
+    print authors
+    for (cat,tweet) in retTuple:
+        print i
+        newTuple.append((cat,tweet,authors[i],urls[i],images[i]))
+        i+=1
+    print newTuple
+    return flask.render_template('index.html', tweets = newTuple)
 
 @app.route("/classify", methods=['GET','POST'])
 def classify():

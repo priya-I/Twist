@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="E:\Priya\Berkeley docs\Courses\290\Twist\Twist\exportToHTML" />
+  </component>
+  <component name="IdProvider" IDEtalkID="EAF651A38A55E6AB2A2AB2BA481C34E6" />
   <component name="ProjectResources">
     <default-html-doctype>$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5.rnc</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.3 (/usr/bin/python2.7)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" assert-keyword="false" jdk-15="false" project-jdk-name="Python 2.7.3 (C:/Python27/python.exe)" project-jdk-type="Python SDK" />
 </project>
 

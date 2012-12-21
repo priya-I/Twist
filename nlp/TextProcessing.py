@@ -18,10 +18,8 @@ __author__ = 'rahmaniacc','priya'
 import nltk
 import string
 import stemming.porter2 as porter
-import spellcheck
-import langid
 import re
-
+import codecs
 
 #initialiations
 
@@ -68,15 +66,17 @@ def process(flow):
     if flow==2:
         #file contating all the words.
         #as new word appears, it is appended to this list.
-        wf=open("../flatfiles/wordset",'a+')
-        wf.write('\n')
+        #wf=codecs.open("../flatfiles/wordset","a+b",encoding='UTF-8')
+        wf=open("../flatfiles/wordset","a+b")
+        #wf.write('\n'')
         df=open("../flatfiles/testdocset",'w')
         maxwordid=0
         for entry in wf:
             splitEnt=entry.partition('\t')
             if int(splitEnt[0])>int(maxwordid):
                 maxwordid=splitEnt[0]
-            wordlist.append(str(splitEnt[2]).strip())
+            listEnt=splitEnt[2]
+            wordlist.append(listEnt.strip())
     else:
         wf=open("../flatfiles/wordset",'w')
         df=open("../flatfiles/docset",'w')
@@ -93,7 +93,7 @@ def process(flow):
         #detect language
         #this is done to filter out all non english tweets
         #this is because, our text processing is only for english words.
-        langDObj=langid.LangDetect()
+        #langDObj=langid.LangDetect()
         with open(f) as tweet_list:
             for line in tweet_list:
                 lineno += 1
@@ -128,7 +128,7 @@ def process(flow):
                     if w not in wordlist:
                         maxwordId +=1
                         wordlist.append(w)
-                        wf.write(str(maxwordId)+"\t"+str(w)+'\n')
+                        wf.write('\n'+str(maxwordId)+"\t"+str(w))
                         wordId=maxwordId
                     else:
                         wordId=wordlist.index(w)+1
@@ -156,7 +156,9 @@ def getwordList():
 def removePunctuations(tokens):
     returnlist = []
     #finds occurances of '--'
-    pattern = re.compile(r"(-)\1{1,}", re.DOTALL)
+    pattern = re.compile(r"(-)\1{1,}|^\d*", re.DOTALL)
+    #pattern = re.compile(r"[0-9]*", re.DOTALL)
+
     for token in tokens:
         #weeds out urls
         if token.startswith('http:'):
@@ -165,7 +167,7 @@ def removePunctuations(tokens):
         # #is used for hastags
         # ' and - are part of names (potentially)
         for punct in string.punctuation:
-            if not (punct == '\'' or punct == '-' or punct=='#'):
+            if not (punct=='#'):
                 token = token.replace(punct, '')
                 token = token.rstrip(punct)
             elif len(pattern.findall(token)) > 0:

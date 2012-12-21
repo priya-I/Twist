@@ -13,16 +13,21 @@ h1, h2, h3, p, ul {
 
 h1 {
     color: #00BFFF;
-    font-family: 'Stalemate', cursive;
-    font-family: 'Tangerine', serif;
+    font-family: 'Rambla', cursive;
     font-size: 65px;
 
 }
 
+a {
+    color: #222;
+    text-align:right;
+    font-family: 'Rambla', cursive;
+    font-size:18px;
+    display:inline
+}
 #description p {
     color: Black;
-    font-family: 'Stalemate', cursive;
-    font-family: 'Tangerine', serif;
+    font-family: 'Rambla', cursive;
     font-size: 35px;
 
 }
@@ -33,9 +38,6 @@ h2 {
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-a{
-    display:none;
 }
 
 p {
@@ -55,10 +57,6 @@ p {
     margin-right:60px;
 }
 
-a:link {text-decoration: none; color: #f68121;}
-a:visited {text-decoration: underline; color: #f68121;}
-a:hover {text-decoration: underline; color: #f36523;}
-a:active {text-decoration: underline; color: #f68121;}
 
 #wrapper{
     padding:20px;
@@ -70,10 +68,15 @@ a:active {text-decoration: underline; color: #f68121;}
     border: 1px solid #EEE;
     height:1000px;
     background: #f6f6f6; /* Old browsers */
+    overflow: auto;
 
 }
 
-
+#tags{
+    padding:20px;
+    width: 900px;
+    margin:auto
+}
 
 li {
     display:inline;

@@ -4,9 +4,10 @@ Modified on Nov 29, 2012 --Priya
 
 @author: Priya, Sonali
 '''
-from liblinearutil import *
-from sklearn.metrics import precision_recall_fscore_support
+from python import liblinearutil as lbu
+#from sklearn.metrics import precision_recall_fscore_support
 import codecs
+
 
 def cacheTweetsInList(maxWords, maxTweets,flow):
     if flow==1:
@@ -73,7 +74,7 @@ def createTestFile(docwords,docCatIds,maxTweets):
 
 def trainliblinear():
     #labels,features=svm_read_problem('../flatfiles/trainf.txt')
-    labels,features=svm_read_problem('../flatfiles/trainAll.txt')
+    labels,features=lbu.svm_read_problem('../flatfiles/trainAll.txt')
 
     #m=train(labels,features,'-c 4 -e 0.1 -v 5')
     #m=train(labels,features,'-c 10 -w1 1 -w2 5')
@@ -89,16 +90,16 @@ def trainliblinear():
             options='-s '+str(type)+' -c '+str(cost)+' -q'
             #options='-s 7 -c 0.01 -q'
             print options
-            m=train(labels,features,str(options))
-            p_label, p_acc, p_val = predict(labels, features, m)
+            m=lbu.train(labels,features,str(options))
+            p_label, p_acc, p_val = lbu.predict(labels, features, m)
             #save_model('SFETModel.model',m)
             #ACC,MSE,SCC=evaluations(labels,p_label)
             #testSVM()
             #print classification_report(labels, p_label)
             ##############################
-            labels1,features1=svm_read_problem('../flatfiles/testf.txt')
-            p_label1, p_acc, p_val = predict(labels1, features1, m)
-            prec,rec,f1,sup = precision_recall_fscore_support(exp_label, p_label1, beta=1.0, labels=None, pos_label=None, average='macro')
+            labels1,features1=lbu.svm_read_problem('../flatfiles/testf.txt')
+            p_label1, p_acc, p_val = lbu.predict(labels1, features1, m)
+            #prec,rec,f1,sup = precision_recall_fscore_support(exp_label, p_label1, beta=1.0, labels=None, pos_label=None, average='macro')
             rec= "%0.2f" % rec
             prec ="%0.2f" % prec
             print "Recall "+str(rec)+"\t"+"Precision"+str(prec)
@@ -110,50 +111,50 @@ def trainliblinear():
 
 def trainLibLinear():
     #labels,features=svm_read_problem('../flatfiles/trainf.txt')
-    labels,features=svm_read_problem('../flatfiles/trainSports.txt')
+    labels,features=lbu.svm_read_problem('../flatfiles/trainSports.txt')
     options='-s 6 -c 5'
-    m=train(labels,features,str(options))
-    p_label, p_acc, p_val = predict(labels, features, m)
-    save_model('sports.model',m)
+    m=lbu.train(labels,features,str(options))
+    p_label, p_acc, p_val = lbu.predict(labels, features, m)
+    lbu.save_model('sports.model',m)
 
-    labels,features=svm_read_problem('../flatfiles/trainFin.txt')
+    labels,features=lbu.svm_read_problem('../flatfiles/trainFin.txt')
     options='-s 6 -c 5'
-    m1=train(labels,features,str(options))
-    p_label, p_acc, p_val = predict(labels, features, m1)
-    save_model('finance.model',m1)
+    m1=lbu.train(labels,features,str(options))
+    p_label, p_acc, p_val = lbu.predict(labels, features, m1)
+    lbu.save_model('finance.model',m1)
 
-    labels,features=svm_read_problem('../flatfiles/trainEnt.txt')
+    labels,features=lbu.svm_read_problem('../flatfiles/trainEnt.txt')
     options='-s 6 -c 5'
-    m2=train(labels,features,str(options))
-    p_label, p_acc, p_val = predict(labels, features, m2)
-    save_model('entertainment.model',m2)
+    m2=lbu.train(labels,features,str(options))
+    p_label, p_acc, p_val = lbu.predict(labels, features, m2)
+    lbu.save_model('entertainment.model',m2)
 
-    labels,features=svm_read_problem('../flatfiles/trainTech.txt')
+    labels,features=lbu.svm_read_problem('../flatfiles/trainTech.txt')
     options='-s 6 -c 5'
-    m3=train(labels,features,str(options))
-    p_label, p_acc, p_val = predict(labels, features, m3)
-    save_model('technology.model',m3)
+    m3=lbu.train(labels,features,str(options))
+    p_label, p_acc, p_val = lbu.predict(labels, features, m3)
+    lbu.save_model('technology.model',m3)
     testSVM()
 
 def testSVM(flag=None):
-    m=load_model('sports.model')
-    labelsS,featuresS=svm_read_problem('../flatfiles/testf.txt')
-    s_label, p_acc, p_val = predict(labelsS, featuresS, m)
+    m=lbu.load_model('sports.model')
+    labelsS,featuresS=lbu.svm_read_problem('../flatfiles/testf.txt')
+    s_label, p_acc, p_val = lbu.predict(labelsS, featuresS, m)
     print "Sports:  "+str(s_label)
 
-    m1=load_model('finance.model')
-    labelsF,featuresF=svm_read_problem('../flatfiles/testf.txt')
-    f_label, p_acc, p_val = predict(labelsF, featuresF, m1)
+    m1=lbu.load_model('finance.model')
+    labelsF,featuresF=lbu.svm_read_problem('../flatfiles/testf.txt')
+    f_label, p_acc, p_val = lbu.predict(labelsF, featuresF, m1)
     print "Finance:  "+str(f_label)
 
-    m2=load_model('entertainment.model')
-    labelsE,featuresE=svm_read_problem('../flatfiles/testf.txt')
-    e_label, p_acc, p_val = predict(labelsE, featuresE, m2)
+    m2=lbu.load_model('entertainment.model')
+    labelsE,featuresE=lbu.svm_read_problem('../flatfiles/testf.txt')
+    e_label, p_acc, p_val = lbu.predict(labelsE, featuresE, m2)
     print "Entertainment:  "+str(e_label)
 
-    m3=load_model('technology.model')
-    labelsT,featuresT=svm_read_problem('../flatfiles/testf.txt')
-    t_label, p_acc, p_val = predict(labelsT, featuresT, m3)
+    m3=lbu.load_model('technology.model')
+    labelsT,featuresT=lbu.svm_read_problem('../flatfiles/testf.txt')
+    t_label, p_acc, p_val = lbu.predict(labelsT, featuresT, m3)
     print "Technology:  "+str(t_label)
 
     outf=open('../outputlabels','w+')
